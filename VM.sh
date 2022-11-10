@@ -4,14 +4,14 @@
 # https://www.makeuseof.com/install-python-ubuntu/
 echo "Installing Python3 ..."
 sudo apt update
-sudo apt install python3
+sudo apt install -y python3
 echo "Python3 successfully installed!"
 
 # Pip
 # https://linuxize.com/post/how-to-install-pip-on-ubuntu-22.04/
 echo "Installing Pip ..."
 sudo apt update
-sudo apt install python3-pip
+sudo apt install -y python3-pip
 echo "Pip successfully installed!"
 
 # Sbt
@@ -21,19 +21,19 @@ echo "deb https://repo.scala-sbt.org/scalasbt/debian all main" | sudo tee /etc/a
 echo "deb https://repo.scala-sbt.org/scalasbt/debian /" | sudo tee /etc/apt/sources.list.d/sbt_old.list
 curl -sL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823" | sudo apt-key add
 sudo apt-get update
-sudo apt-get install sbt
+sudo apt-get install -y sbt
 echo "Sbt successfully installed!"
 
 # MongoDB
 # https://nksistemas.com/instalar-mongodb-en-ubuntu-22-04/
 echo "Installing MongoDB ..."
 sudo apt update
-sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common
+sudo apt install -y dirmngr gnupg apt-transport-https ca-certificates software-properties-common
 wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
 echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
 sudo apt update
 wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
-dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb
 sudo apt-get install -y mongodb-org
 echo "MongoDB successfully installed!"
 
