@@ -50,6 +50,8 @@ git clone https://github.com/patriciaOrtuno28/fbid.git
 ### Instalación
 Para la realización de esta práctica de predicción de vuelos, se requiere un escenario con las tecnologías mencionadas en el apartado anterior previamente instaladas. Para ello se proporciona un script automatizado que las instalará, con versiones acordes al escenario a ejecutar posteriormente.
 
+> Nota: Si se pide el reinicio de algún servicio, marque ambas opciones (utilizando la barra espaciadora). Cuando estén marcados (aparecerá un [*]), presione Enter.
+
 Primero, se debe proporcionar permisos al archivo a ejecutar:
 ```console
 chmod 777 VM.sh
