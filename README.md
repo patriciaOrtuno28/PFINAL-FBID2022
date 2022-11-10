@@ -1,11 +1,21 @@
-# Predicción de vuelos
-> FBID - MUIRST
+~~~
+
+                             ___             ___         _  __            __                    __       
+                            / _ \_______ ___/ (_)_______(_)/_/ ___    ___/ /__   _  ____ _____ / /__  ___
+                           / ___/ __/ -_) _  / / __/ __/ / _ \/ _ \  / _  / -_) | |/ / // / -_) / _ \(_-<
+                          /_/  /_/  \__/\_,_/_/\__/\__/_/\___/_//_/  \_,_/\__/  |___/\_,_/\__/_/\___/___/
+                                                                               
+
+~~~
+FBID - MUIRST
+
+2022
 
 Laura Fernández Galindo & Patricia Ortuño Otero
 
-## Instrucciones
+# Instrucciones
 
-### Crear máquina virtual Ubuntu 22.04 Google Cloud
+## Crear máquina virtual Ubuntu 22.04 Google Cloud
 
 - Acceder a Google Cloud con sus credenciales
 - Crear una nueva instancia:
@@ -18,4 +28,4 @@ Laura Fernández Galindo & Patricia Ortuño Otero
     - Firewall: permitir tráfico HTTP y HTTPS
 - Clonar este proyecto dentro de la máquina creada o subir los archivos manualmente
 
-### Instalar las dependencias
+## Instalar las dependencias
