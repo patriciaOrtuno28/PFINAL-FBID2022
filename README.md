@@ -28,7 +28,7 @@ Laura Fernández Galindo & Patricia Ortuño Otero
   - Crear instancia
     - Zona: europe-southwest1-a
     - Disco de arranque:
-      - Ubuntu 22.04 LTS (Arquitectura x86-64)
+      - Ubuntu 22.04 LTS Pro Server (Arquitectura x86-64)
       - Tamaño 18GB
     - Firewall: permitir tráfico HTTP y HTTPS
 - Clonar este proyecto dentro de la máquina creada o subir los archivos manualmente
