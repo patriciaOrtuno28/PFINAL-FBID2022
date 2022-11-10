@@ -14,6 +14,10 @@ sudo apt update
 sudo apt install -y python3-pip
 echo "Pip successfully installed!"
 
+# Restart obsolete services
+sudo apt install -y needrestart
+sudo needrestart -u NeedRestart::UI::stdio -r a
+
 # Sbt
 # https://www.scala-sbt.org/1.x/docs/es/Installing-sbt-on-Linux.html
 echo "Installing sbt ..."
@@ -44,6 +48,9 @@ echo "Installing Mongosh ..."
 wget https://downloads.mongodb.com/compass/mongodb-mongosh_1.6.0_amd64.deb
 sudo dpkg -i mongodb-mongosh_1.6.0_amd64.deb
 echo "Mongosh successfully installed!"
+
+# Restart obsolete services
+sudo needrestart -u NeedRestart::UI::stdio -r a
 
 # Spark
 # https://computingforgeeks.com/how-to-install-apache-spark-on-ubuntu-debian/
