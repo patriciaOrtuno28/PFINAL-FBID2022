@@ -51,8 +51,8 @@ python3 resources/train_spark_mllib_model.py .
 
 # Modify the base_path
 echo "Creating JAR file ..."
-sed -i 's+val base_path= "/Users/admin/IdeaProjects/ging/practica_big_data_2019"+val base_path= "/home/patricia/practica_big_data_2019"+g' \
-	/home/patricia/practica_big_data_2019/flight_prediction/src/main/scala/es/upm/dit/ging/predictor/MakePrediction.scala
+sed -i 's+val base_path= "/Users/admin/IdeaProjects/ging/practica_big_data_2019"+val base_path= "/home/$USER/practica_big_data_2019"+g' \
+	/home/$USER/practica_big_data_2019/flight_prediction/src/main/scala/es/upm/dit/ging/predictor/MakePrediction.scala
 
 # Create JAR file to use with spark-submit command
 cd flight_prediction
@@ -67,11 +67,11 @@ gnome-terminal --tab --title="Spark Submit" \
 
 # Run the web service
 echo "Running the web service ..."
-export PROJECT_HOME=/home/patricia/practica_big_data_2019
+export PROJECT_HOME=/home/$USER/practica_big_data_2019
 gnome-terminal --tab --title="Web Service" \
-	--command="bash -c 'cd /home/patricia/practica_big_data_2019/resources/web; pip install joblib; python3 predict_flask.py; $SHELL'"
+	--command="bash -c 'cd /home/$USER/practica_big_data_2019/resources/web; pip install joblib; python3 predict_flask.py; $SHELL'"
 
 # Show database information
 echo "Showing database information ..."
 gnome-terminal --tab --title="Database Info" \
-	--command="bash -c 'cd /home/patricia/; mongosh agile_data_science showdb.js; $SHELL'"
+	--command="bash -c 'cd /home/$USER/; mongosh agile_data_science showdb.js; $SHELL'"
