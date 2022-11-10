@@ -60,6 +60,11 @@ Ahora podemos ejecutarlo:
 ```
 Este proceso puede demorarse varios minutos ya que está instalando múltiples tecnologías.
 
+Cuando haya terminado la instalación, verá el siguiente mensaje por la consola:
+```
+All dependencies have been successfully installed. Please proceed with the execution of the flight-delay predictor scenario.
+```
+
 ## Iniciar el escenario <a name="deploy"></a>
 
 ## Destruir el escenario (Opcional) <a name="destroy"></a>
