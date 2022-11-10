@@ -22,6 +22,7 @@ echo "deb https://repo.scala-sbt.org/scalasbt/debian /" | sudo tee /etc/apt/sour
 curl -sL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823" | sudo apt-key add
 sudo apt-get update
 sudo apt-get install -y sbt
+sbt --version
 echo "Sbt successfully installed!"
 
 # MongoDB
@@ -40,8 +41,8 @@ echo "MongoDB successfully installed!"
 # Mongosh
 # https://www.mongodb.com/try/download/shell
 echo "Installing Mongosh ..."
-wget https://downloads.mongodb.com/compass/mongodb-mongosh_1.6.0_amd64.deb?_ga=2.156937596.654570191.1668088939-410061570.1667850749
-sudo dpkg -i mongodb-mongosh_1.6.0_amd64.deb?_ga=2.156937596.654570191.1668088939-410061570.1667850749
+wget https://downloads.mongodb.com/compass/mongodb-mongosh_1.6.0_amd64.deb
+sudo dpkg -i mongodb-mongosh_1.6.0_amd64.deb
 echo "Mongosh successfully installed!"
 
 # Spark
@@ -87,3 +88,11 @@ wget https://archive.apache.org/dist/kafka/3.0.0/kafka_2.12-3.0.0.tgz
 tar xzf kafka_2.12-3.0.0.tgz
 sudo mv kafka_2.12-3.0.0 /usr/local/kafka
 echo "Kafka successfully installed!"
+
+# Limpieza
+rm kafka_2.12-3.0.0.tgz
+rm libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+rm spark-3.1.2-bin-hadoop2.7.tgz
+rm mongodb-mongosh_1.6.0_amd64.deb
+
+echo "All dependencies have been successfully installed. Please proceed with the execution of the flight-delay predictor scenario."
