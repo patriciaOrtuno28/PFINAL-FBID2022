@@ -28,7 +28,7 @@ Laura Fernández Galindo & Patricia Ortuño Otero
   - Crear instancia
     - Zona: europe-southwest1-a
     - Disco de arranque:
-      - Ubuntu 22.04 LTS (Arquitectura x86)
+      - Ubuntu 22.04 LTS (Arquitectura x86-64)
       - Tamaño 18GB
     - Firewall: permitir tráfico HTTP y HTTPS
 - Clonar este proyecto dentro de la máquina creada o subir los archivos manualmente
@@ -67,6 +67,7 @@ All dependencies have been successfully installed. Please proceed with the execu
 
 ## Iniciar el escenario <a name="deploy"></a>
 Para inicializar el escenario de predicción de retrasos (o adelantos) de vuelos, se proporciona un fichero que automatiza todas las funciones mencionadas en [Práctica Big Data 2019](https://github.com/ging/practica_big_data_2019).
+
 Primero, se debe proporcionar permisos al archivo a ejecutar:
 ```console
 chmod 777 deploy.sh
@@ -78,6 +79,7 @@ Ahora podemos ejecutarlo:
 
 ## Destruir el escenario (Opcional) <a name="destroy"></a>
 En caso de desearse revertir el proceso de instalación del escenario de predicción de vuelos, se proporciona un fichero adicional que ejecuta dicha acción.
+
 Primero, se debe proporcionar permisos al archivo a ejecutar:
 ```console
 chmod 777 destroy.sh
