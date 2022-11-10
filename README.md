@@ -22,8 +22,8 @@ Laura Fernández Galindo & Patricia Ortuño Otero
 
 ## Crear máquina virtual Ubuntu 22.04 Google Cloud <a name="crearvm"></a>
 
-- Acceder a Google Cloud con sus credenciales
-- Crear una nueva instancia:
+1. Acceder a Google Cloud con sus credenciales
+2. Crear una nueva instancia:
   - Compute Engine -> Instancias de VM
   - Crear instancia
     - Zona: europe-southwest1-a
@@ -31,10 +31,38 @@ Laura Fernández Galindo & Patricia Ortuño Otero
       - Ubuntu 22.04 LTS Pro Server (Arquitectura x86-64)
       - Tamaño 18GB
     - Firewall: permitir tráfico HTTP y HTTPS
-- Clonar este proyecto dentro de la máquina creada o subir los archivos manualmente
+3. Clonar este proyecto dentro de la máquina creada o subir los archivos manualmente
 ```console
 git clone https://github.com/patriciaOrtuno28/fbid.git
 ```
+4. Para la realización de esta práctica se utilizará Ubuntu 22.04 Desktop. Para ello, se proporciona un fichero automatizado de instalación de las dependencias necesarias.
+
+     ```console
+     chmod 777 desktop.sh
+     ```
+     Ahora podemos ejecutarlo:
+     ```console
+     ./desktop.sh
+     ```
+     Tras ejecutarlo, verá que se ha hecho reboot. Por tanto, haga clic en `Reintentar` para volver a acceder a la máquina por SSH.
+     Entonces ejecute el siguiente comando:
+     ```
+     sudo service slim start
+     ```
+ 5. Acceda a [Chrome Remote Desktop](https://remotedesktop.google.com/headless) para la configuración de Ubuntu 22.04 Desktop.
+ 
+     - Haga clic en Configurar otra página de ordenador: `Empezar` -> `Siguiente` -> `Autorizar`
+     - En Configurar otro ordenador copie el contenido de `Debian Linux`
+     - Pegue dicho comando en la instancia abierta por SSH de su máquina virtual
+     - Se le solicitará introducir un PIN de 6 dígitos. Introduzca el que desee y recuérdelo.
+     - Si todo ha funcionado satisfactoriamente, verá el siguiente mensaje en la terminal:
+     ```
+     [1110/181949.990461:INFO:daemon_controller_delegate_linux.cc(98)] Created symlink /etc/systemd/system/multi-user.target.wants/chrome-remote-desktop@patiortu.service → /lib/systemd/system/chrome-remote-desktop@.service.
+     ```
+     - Vuelva a entrar en Chrome Remote Desktop y acceda a `Acceso remoto`
+     - Verá que ha aparecido la instancia que creó en Google Cloud. Haga clic sobre ella e introduzca el PIN que creó.
+     - Si le solicita autenticación al abrirse el escritorio remoto, haga clic en cancelar.
+
 
 ## Instalar las dependencias <a name="dependencias"></a>
 ### Tecnologías
