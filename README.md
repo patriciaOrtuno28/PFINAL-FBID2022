@@ -32,7 +32,7 @@ Laura Fernández Galindo & Patricia Ortuño Otero
       - Tamaño 18GB
     - Firewall: permitir tráfico HTTP y HTTPS
 - Clonar este proyecto dentro de la máquina creada o subir los archivos manualmente
-```
+```console
 git clone https://github.com/patriciaOrtuno28/fbid.git
 ```
 
@@ -51,11 +51,11 @@ git clone https://github.com/patriciaOrtuno28/fbid.git
 Para la realización de esta práctica de predicción de vuelos, se requiere un escenario con las tecnologías mencionadas en el apartado anterior previamente instaladas. Para ello se proporciona un script automatizado que las instalará, con versiones acordes al escenario a ejecutar posteriormente.
 
 Primero, se debe proporcionar permisos al archivo a ejecutar:
-```
+```console
 chmod 777 VM.sh
 ```
 Ahora podemos ejecutarlo:
-```
+```console
 ./VM.sh
 ```
 Este proceso puede demorarse varios minutos ya que está instalando múltiples tecnologías.
@@ -66,5 +66,23 @@ All dependencies have been successfully installed. Please proceed with the execu
 ```
 
 ## Iniciar el escenario <a name="deploy"></a>
+Para inicializar el escenario de predicción de retrasos (o adelantos) de vuelos, se proporciona un fichero que automatiza todas las funciones mencionadas en [Práctica Big Data 2019](https://github.com/ging/practica_big_data_2019).
+Primero, se debe proporcionar permisos al archivo a ejecutar:
+```console
+chmod 777 deploy.sh
+```
+Ahora podemos ejecutarlo:
+```console
+./deploy.sh
+```
 
 ## Destruir el escenario (Opcional) <a name="destroy"></a>
+En caso de desearse revertir el proceso de instalación del escenario de predicción de vuelos, se proporciona un fichero adicional que ejecuta dicha acción.
+Primero, se debe proporcionar permisos al archivo a ejecutar:
+```console
+chmod 777 destroy.sh
+```
+Ahora podemos ejecutarlo:
+```console
+./destroy.sh
+```
