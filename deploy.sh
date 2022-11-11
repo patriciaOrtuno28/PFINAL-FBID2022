@@ -38,8 +38,11 @@ sudo service mongod start
 
 # Import airline data using monsh
 echo "Importing airline data ..."
+cd ..
 sed -i 's/mongo /mongosh /g' practica_big_data_2019/resources/import_distances.sh
-./practica_big_data_2019/resources/import_distances.sh
+cd practica_big_data_2019
+./resources/import_distances.sh
+cd ..
 
 # Export environment variables
 echo "Exporting environment variables ..."
