@@ -56,7 +56,7 @@ sed -i 's+val base_path= "/Users/admin/IdeaProjects/ging/practica_big_data_2019"
 	/home/$USER/PFINAL-FBID2022/practica_big_data_2019/flight_prediction/src/main/scala/es/upm/dit/ging/predictor/MakePrediction.scala
 
 # Create JAR file to use with spark-submit command
-cd practica_big_data_2019/flight_prediction
+cd /home/$USER/PFINAL-FBID2022/practica_big_data_2019/flight_prediction
 sbt package
 chmod 777 target/scala-2.12/flight_prediction_2.12-0.1.jar
 cd
