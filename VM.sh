@@ -97,6 +97,7 @@ sudo mv kafka_2.12-3.0.0 /usr/local/kafka
 echo "Kafka successfully installed!"
 
 # Limpieza
+cd
 rm kafka_2.12-3.0.0.tgz
 rm libssl1.1_1.1.1f-1ubuntu2_amd64.deb
 rm spark-3.1.2-bin-hadoop2.7.tgz
