@@ -41,7 +41,7 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
 7. Al terminar la descarga, reinicie la máquina virtual. Presione *Enter* cuando se le solicite.
 8. Clonar este repositorio dentro de la máquina creada:
      ```console
-     git clone https://github.com/patriciaOrtuno28/fbid.git
+     git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git
      ```
 
 > Nota: Para cambiar la resolución acceda a Settings -> Displays -> Resolution
@@ -59,7 +59,7 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
     - Firewall: permitir tráfico HTTP y HTTPS
 3. Clonar este repositorio dentro de la máquina creada:
      ```console
-     git clone https://github.com/patriciaOrtuno28/fbid.git
+     git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git
      ```
 4. Para la realización de esta práctica se utilizará Ubuntu 22.04 Desktop. Para ello, se proporciona un fichero automatizado de instalación de las dependencias necesarias.
 
