@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Python3
-# https://www.makeuseof.com/install-python-ubuntu/
 cd
 echo "Installing Python3 ..."
 sudo apt update
@@ -9,20 +8,13 @@ sudo apt install -y python3
 echo "Python3 successfully installed!"
 
 # Pip
-# https://linuxize.com/post/how-to-install-pip-on-ubuntu-22.04/
 cd
 echo "Installing Pip ..."
 sudo apt update
 sudo apt install -y python3-pip
 echo "Pip successfully installed!"
 
-# Restart obsolete services
-cd
-sudo apt install -y needrestart
-sudo needrestart -u NeedRestart::UI::stdio -r a
-
 # Sbt
-# https://www.scala-sbt.org/1.x/docs/es/Installing-sbt-on-Linux.html
 cd
 echo "Installing sbt ..."
 echo "deb https://repo.scala-sbt.org/scalasbt/debian all main" | sudo tee /etc/apt/sources.list.d/sbt.list
@@ -34,7 +26,6 @@ sbt --version
 echo "Sbt successfully installed!"
 
 # MongoDB
-# https://nksistemas.com/instalar-mongodb-en-ubuntu-22-04/
 cd
 echo "Installing MongoDB ..."
 sudo apt update
@@ -48,18 +39,13 @@ sudo apt-get install -y mongodb-org
 echo "MongoDB successfully installed!"
 
 # Mongosh
-# https://www.mongodb.com/try/download/shell
 cd
 echo "Installing Mongosh ..."
 wget https://downloads.mongodb.com/compass/mongodb-mongosh_1.6.0_amd64.deb
 sudo dpkg -i mongodb-mongosh_1.6.0_amd64.deb
 echo "Mongosh successfully installed!"
 
-# Restart obsolete services
-sudo needrestart -u NeedRestart::UI::stdio -r a
-
 # Spark
-# https://computingforgeeks.com/how-to-install-apache-spark-on-ubuntu-debian/
 cd
 echo "Installing Spark ..."
 sudo apt update && sudo apt -y full-upgrade
@@ -70,14 +56,12 @@ sudo mv spark-3.1.2-bin-hadoop2.7/ /opt/spark
 echo "Spark successfully installed!"
 
 # Scala
-# https://medium.com/beeranddiapers/installing-scala-on-ubuntu-7a4b14d26bdc
 cd
 echo "Installing Scala ..."
 sudo apt-get -y install scala
 echo "Scala successfully installed!"
 
 # Zookeeper
-# https://phoenixnap.com/kb/install-apache-zookeeper
 cd
 echo "Installing Zookeeper ..."
 sudo useradd zookeeper -m
@@ -96,7 +80,6 @@ cd
 echo "Zookeeper successfully installed!"
 
 # Kafka
-# https://tecadmin.net/how-to-install-apache-kafka-on-ubuntu-22-04/
 cd
 echo "Installing Kafka ..."
 sudo apt update
