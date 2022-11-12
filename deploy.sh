@@ -25,6 +25,7 @@ gnome-terminal --tab --title="Kafka" \
 
 # Create a kafka topic
 echo "Creating a new kafka topic ..."
+sleep 5
 /usr/local/kafka/bin/kafka-topics.sh \
       --create \
       --bootstrap-server localhost:9092 \
