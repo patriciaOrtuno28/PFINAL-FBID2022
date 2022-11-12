@@ -38,13 +38,17 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
 4. Inicie la máquina
 5. Le solicitará una imagen ISO para hacer la instalación. Descargar [Ubuntu 22.04 Desktop Image (64-bit AMD64)](https://releases.ubuntu.com/22.04/) de la web oficial.
 6. Siga los pasos para realizar la instalación. Se recomienda escoger la instalación mínima por cuestiones de rendimiento y velocidad de la descarga.
-7. Al terminar la descarga, reinicie la máquina virtual. Presione Enter cuando se le solicite.
+7. Al terminar la descarga, reinicie la máquina virtual. Presione *Enter* cuando se le solicite.
+8. Clonar este repositorio dentro de la máquina creada:
+     ```console
+     git clone https://github.com/patriciaOrtuno28/fbid.git
+     ```
 
 > Nota: Para cambiar la resolución acceda a Settings -> Displays -> Resolution
 
 ## Crear máquina virtual Ubuntu 22.04 Google Cloud <a name="crearvm"></a>
 
-1. Acceder a Google Cloud con sus credenciales
+1. Acceder a [Google Cloud Compute](https://console.cloud.google.com/compute) con sus credenciales.
 2. Crear una nueva instancia:
   - Compute Engine -> Instancias de VM
   - Crear instancia
@@ -53,10 +57,10 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
       - Ubuntu 22.04 LTS Pro Server (Arquitectura x86-64)
       - Tamaño 18GB
     - Firewall: permitir tráfico HTTP y HTTPS
-3. Clonar este proyecto dentro de la máquina creada o subir los archivos manualmente
-```console
-git clone https://github.com/patriciaOrtuno28/fbid.git
-```
+3. Clonar este repositorio dentro de la máquina creada:
+     ```console
+     git clone https://github.com/patriciaOrtuno28/fbid.git
+     ```
 4. Para la realización de esta práctica se utilizará Ubuntu 22.04 Desktop. Para ello, se proporciona un fichero automatizado de instalación de las dependencias necesarias.
 
      ```console
