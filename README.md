@@ -15,10 +15,32 @@ Laura Fernández Galindo & Patricia Ortuño Otero
 
 # Instrucciones
 
-- [Crear VM](#crearvm)
+> Nota: Debe escoger una de las dos opciones de creación de una máquina virtual Ubuntu 22.04 para desplegar el escenario. Se proporcionan instrucciones para una instalación local en VirtualBox a partir de una imagen ISO, y para la creación de un Ubuntu Desktop a través de Google Cloud.
+
+- [Crear VM Ubuntu en VirtualBox](#crearvmlocal)
+- [Crear VM Ubuntu en Google Cloud](#crearvm)
 - [Instalar dependencias](#dependencias)
 - [Iniciar el escenario](#deploy)
 - [Destruir el escenario (Opcional)](#destroy)
+
+## Crear máquina virtual Ubuntu 22.04 VirtualBox <a name="crearvmlocal"></a>
+
+A continuación, se proporcionan las instrucciones para crear una máquina virtual con Ubuntu 22.04 en VirtualBox, para el despliegue del escenario localmente.
+
+1. Descargar [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+2. Crear una nueva máquina, con las siguientes características:
+     - Tipo: Linux
+     - Versión: Ubuntu 22.04 LTS (Jammy Jellyfish) (64 bit)
+     - Memoria base (*recomendado*): > 4096 MB
+     - Procesadores (*recomendado*): > 2
+     - Tamaño de disco (*recomendado*): > 20 GB
+3. Para tener acceso a Internet: Configuración -> Red -> Adaptador1 -> Adaptador puente
+4. Inicie la máquina
+5. Le solicitará una imagen ISO para hacer la instalación. Descargar [Ubuntu 22.04 Desktop Image (64-bit AMD64)](https://releases.ubuntu.com/22.04/) de la web oficial.
+6. Siga los pasos para realizar la instalación. Se recomienda escoger la instalación mínima por cuestiones de rendimiento y velocidad de la descarga.
+7. Al terminar la descarga, reinicie la máquina virtual. Presione Enter cuando se le solicite.
+
+> Nota: Para cambiar la resolución acceda a Settings -> Displays -> Resolution
 
 ## Crear máquina virtual Ubuntu 22.04 Google Cloud <a name="crearvm"></a>
 
