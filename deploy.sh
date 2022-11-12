@@ -78,5 +78,6 @@ gnome-terminal --tab --title="Web Service" \
 
 # Show database information
 echo "Showing database information ..."
+sleep 10
 gnome-terminal --tab --title="Database Info" \
 	--command="bash -c 'cd /home/$USER/PFINAL-FBID2022; mongosh agile_data_science showdb.js; $SHELL'"
