@@ -55,7 +55,7 @@ python3 practica_big_data_2019/resources/train_spark_mllib_model.py practica_big
 
 # Modify the base_path
 echo "Creating JAR file ..."
-sed -i 's+val base_path= "/Users/admin/IdeaProjects/ging/practica_big_data_2019"+val base_path= "/home/$USER/PFINAL-FBID2022/practica_big_data_2019"+g' \
+sed -i 's+val base_path= "/Users/admin/IdeaProjects/ging/practica_big_data_2019"+val base_path= "/home/" + sys.env("USER") + "/PFINAL-FBID2022/practica_big_data_2019"+g' \
 	/home/$USER/PFINAL-FBID2022/practica_big_data_2019/flight_prediction/src/main/scala/es/upm/dit/ging/predictor/MakePrediction.scala
 
 # Create JAR file to use with spark-submit command
