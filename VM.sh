@@ -96,7 +96,7 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo apt-get install -f
 
 # Limpieza
-cd /home/$USER/PFINAL-FBID2022
+cd /home/$USER
 rm kafka_2.12-3.0.0.tgz
 rm libssl1.1_1.1.1f-1ubuntu2_amd64.deb
 rm spark-3.1.2-bin-hadoop2.7.tgz
