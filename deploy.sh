@@ -76,10 +76,5 @@ export PROJECT_HOME=/home/$USER/PFINAL-FBID2022/practica_big_data_2019
 gnome-terminal --tab --title="Web Service" \
 	--command="bash -c 'cd /home/$USER/PFINAL-FBID2022/practica_big_data_2019/resources/web; pip install joblib; echo "http://localhost:5000/flights/delays/predict_kafka"; python3 predict_flask.py; $SHELL'"
 
-# Show database information
-echo "Showing database information ..."
-sleep 10
-gnome-terminal --tab --title="Database Info" \
-	--command="bash -c 'cd /home/$USER/PFINAL-FBID2022; mongosh agile_data_science showdb.js; $SHELL'"
-
+# Finished deployment
 echo "Scenario successfully deployed! Visit http://localhost:5000/flights/delays/predict_kafka to make use of the flight delay predictions."
