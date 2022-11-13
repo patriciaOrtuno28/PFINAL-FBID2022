@@ -9,6 +9,6 @@ rm nomachine_8.2.3_4_amd64.deb
 
 # Creation of the sudo user
 sudo passwd
-sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 sudo adduser fbid
-usermod -a -G sudo,adm fbid
+sudo usermod -a -G sudo,adm fbid
