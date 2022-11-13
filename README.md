@@ -65,6 +65,8 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
      
 4. Para la realización de esta práctica se utilizará Ubuntu 22.04 Desktop. Para ello, se proporciona un fichero automatizado de instalación de las dependencias necesarias.
 
+     > Nota: Si se pide el reinicio de algún servicio, marque ambas opciones (utilizando la barra espaciadora). Cuando estén marcados (aparecerá un [*]), presione   Enter.
+
      ```console
      chmod 777 desktop.sh
      ```
