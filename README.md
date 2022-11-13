@@ -39,7 +39,7 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
 5. Le solicitará una imagen ISO para hacer la instalación. Descargar [Ubuntu 22.04 Desktop Image (64-bit AMD64)](https://releases.ubuntu.com/22.04/) de la web oficial.
 6. Siga los pasos para realizar la instalación. Se recomienda escoger la instalación mínima por cuestiones de rendimiento y velocidad de la descarga.
 7. Al terminar la descarga, reinicie la máquina virtual. Presione *Enter* cuando se le solicite.
-8. Clonar este repositorio dentro de la máquina creada:
+8. Clonar este repositorio dentro de la máquina creada, y acceda a él:
      ```console
      git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git
      ```
@@ -57,7 +57,7 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
       - Ubuntu 22.04 LTS Minimal (Arquitectura x86-64)
       - Tamaño 18GB
     - Firewall: permitir tráfico HTTP y HTTPS
-3. Clonar este repositorio dentro de la máquina creada:
+3. Clonar este repositorio dentro de la máquina creada, y acceda a él:
      ```console
      git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git
      ```
@@ -112,7 +112,7 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
 ### Instalación
 Para la realización de esta práctica de predicción de vuelos, se requiere un escenario con las tecnologías mencionadas en el apartado anterior previamente instaladas. Para ello se proporciona un script automatizado que las instalará, con versiones acordes al escenario a ejecutar posteriormente.
 
-> Nota: Si escogió la instalación en Google Cloud, clone de nuevo el proyecto dentro del Ubuntu Desktop: `git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git`
+> Nota: Si escogió la instalación en Google Cloud, clone de nuevo el proyecto dentro del Ubuntu Desktop: `git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git`. Acceda a él.
 
 > Nota: Si se pide el reinicio de algún servicio, marque ambas opciones (utilizando la barra espaciadora). Cuando estén marcados (aparecerá un [*]), presione Enter.
 
