@@ -112,6 +112,8 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
 ### Instalación
 Para la realización de esta práctica de predicción de vuelos, se requiere un escenario con las tecnologías mencionadas en el apartado anterior previamente instaladas. Para ello se proporciona un script automatizado que las instalará, con versiones acordes al escenario a ejecutar posteriormente.
 
+> Nota: Si escogió la instalación en Google Cloud, clone de nuevo el proyecto dentro del Ubuntu Desktop: `git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git`
+
 > Nota: Si se pide el reinicio de algún servicio, marque ambas opciones (utilizando la barra espaciadora). Cuando estén marcados (aparecerá un [*]), presione Enter.
 
 Primero, se debe proporcionar permisos al archivo a ejecutar:
