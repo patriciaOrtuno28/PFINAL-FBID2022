@@ -67,6 +67,8 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
 
      > Nota: Si se pide el reinicio de algún servicio, marque ambas opciones (utilizando la barra espaciadora). Cuando estén marcados (aparecerá un [*]), presione   Enter.
 
+     > Importante: El usuario que se va a crear se llama `fbid`
+
      ```console
      chmod 777 desktop.sh
      ```
@@ -76,9 +78,9 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
      ```
      
      Se le solicitarán los siguientes datos:
-          - Keyboard Layout: (*Spanish*) 84 y 1 respectivamente.
-          - New password: <*your_new_password*>
-          - Como resultado del adduser se le solicitará una contraseña. Introduzca la misma que introdujo anteriormente. El resto de campos déjelos vacios.
+     - Keyboard Layout: (*Spanish*) 84 y 1 respectivamente.
+     - New password: <*your_new_password*>
+     - Como resultado del adduser se le solicitará una contraseña. Introduzca la misma que introdujo anteriormente. El resto de campos déjelos vacios.
 
 5. Para tener conectividad dentro de esta máquina, vamos a añadir una nueva regla al Firewall en Google Cloud:
      - Google Cloud -> Red de VPC -> Firewall
@@ -87,7 +89,9 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
           - Etiquetas de destino: ubuntu-desktop
           - Rangos de IPv4 de origen: 0.0.0.0/0
           - Protocolos y puertos especificados: TCP - 4000 y UDP - 4000
+     
      Verá el siguiente mensaje por pantalla: `Se creó correctamente la regla de firewall "ubuntu-desktop".`
+
 6. Hay que añadir esa regla a la instancia creada. Para ello hacemos clic sobre el nombre de la instancia y seleccionamos Editar. Hay que bajar hasta etiquetas de red y añadir `ubuntu-desktop`, dentro de Interfaces de red.
 
 7. Para trabajar con Ubuntu Desktop con interfaz gráfica, en vez de la terminal proporcionada por Google Cloud, descargue [NoMachine](https://downloads.nomachine.com/es/). Tras completar la instalación, se le solicitará reiniciar el dispositivo.
