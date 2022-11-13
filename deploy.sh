@@ -76,5 +76,39 @@ export PROJECT_HOME=/home/$USER/PFINAL-FBID2022/practica_big_data_2019
 gnome-terminal --tab --title="Web Service" \
 	--command="bash -c 'cd /home/$USER/PFINAL-FBID2022/practica_big_data_2019/resources/web; pip install joblib; echo "http://localhost:5000/flights/delays/predict_kafka"; python3 predict_flask.py; $SHELL'"
 
+# Install and run airflow
+echo "Executing airflow ..."
+cd practica_big_data_2019
+cd resources/airflow
+
+sed -i 's/numpy==1.20.3/numpy==1.21.5/g' constraints.txt
+
+pip install -r requirements.txt -c constraints.txt
+
+export AIRFLOW_HOME=~/airflow
+mkdir $AIRFLOW_HOME/dags
+mkdir $AIRFLOW_HOME/logs
+mkdir $AIRFLOW_HOME/plugins
+
+cp setup.py ~/airflow/dags/
+
+airflow users create \
+    --username admin \
+    --firstname Jack \
+    --lastname  Sparrow\
+    --role Admin \
+    --email example@mail.org
+
+airflow db init
+
+gnome-terminal --tab --title="Airflow Webserver" \
+        --command="bash -c 'cd;  airflow webserver --port 8080; $SHELL'"
+
+gnome-terminal --tab --title="Airflow Scheduler" \
+        --command="bash -c 'cd; airflow scheduler; $SHELL'"
+
 # Finished deployment
+cd PFINAL-FBID2022
 echo "Scenario successfully deployed! Visit http://localhost:5000/flights/delays/predict_kafka to make use of the flight delay predictions."
+
+

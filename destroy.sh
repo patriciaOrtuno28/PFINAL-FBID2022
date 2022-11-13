@@ -1,6 +1,7 @@
 #!/bin/bash
 
 rm -Rf practica_big_data_2019
+rm -Rf ~/airflow
 
 /usr/local/kafka/bin/kafka-topics.sh \
       --bootstrap-server localhost:9092 \
