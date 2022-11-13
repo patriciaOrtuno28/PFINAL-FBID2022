@@ -89,13 +89,16 @@ sudo mv kafka_2.12-3.0.0 /usr/local/kafka
 echo "Kafka successfully installed!"
 
 # Google Chrome
+echo "Installing Google Chrome ..."
 sudo apt update
 sudo apt upgrade
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo apt-get install -f
+echo "Google Chrome successfully installed!"
 
 # Limpieza
+echo "Removing installation files ..."
 cd /home/$USER
 rm kafka_2.12-3.0.0.tgz
 rm libssl1.1_1.1.1f-1ubuntu2_amd64.deb
