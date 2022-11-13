@@ -73,7 +73,10 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
      ./desktop.sh
      ```
      
-     > Importante: Se le solicitará escoger el *Keyboard Layout*. Si tiene un ordenador con teclado español, escriba 84 y 1 respectivamente.
+     Se le solicitarán los siguientes datos:
+          - Keyboard Layout: (*Spanish*) 84 y 1 respectivamente.
+          - New password: <*your_new_password*>
+          - Como resultado del adduser se le solicitará una contraseña. Introduzca la misma que introdujo anteriormente. El resto de campos déjelos vacios.
 
 5. Para tener conectividad dentro de esta máquina, vamos a añadir una nueva regla al Firewall en Google Cloud:
      - Google Cloud -> Red de VPC -> Firewall
@@ -87,11 +90,13 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
 
 7. Para trabajar con Ubuntu Desktop con interfaz gráfica, en vez de la terminal proporcionada por Google Cloud, descargue [NoMachine](https://downloads.nomachine.com/es/). Tras completar la instalación, se le solicitará reiniciar el dispositivo.
 8. Para añadir una nueva máquina seleccionar Añadir e introducir los siguientes datos:
-     - Nombre: FBID
-     - Host:
+     - Nombre: fbid
+     - Host: IP externa (*Se puede ver donde hemos creado la instancia*)
      - Puerto: 4000 (*El que habíamos abierto en el Firewall*)
      - Protocolo: NX
-
+9. Darle a Conectar en la máquina creada. Aparecerá una advertencia sobre la huella del certificado. Pinche OK.
+10. Inicie sesión con las credenciales que creó durante la ejecución del fichero desktop.sh.
+11. Verá el siguiente mensaje `No se puede detectar ninguna pantalla en ejecución ¿Desea que NoMachine cree una nueva y proceda a conectarse con el escritorio?`. Pinche Sí.
 
 ## Instalar las dependencias <a name="dependencias"></a>
 ### Tecnologías
