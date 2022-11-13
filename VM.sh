@@ -17,6 +17,7 @@ echo "Pip successfully installed!"
 # Sbt
 cd
 echo "Installing sbt ..."
+sudo apt install curl mlocate default-jdk -y
 echo "deb https://repo.scala-sbt.org/scalasbt/debian all main" | sudo tee /etc/apt/sources.list.d/sbt.list
 echo "deb https://repo.scala-sbt.org/scalasbt/debian /" | sudo tee /etc/apt/sources.list.d/sbt_old.list
 curl -sL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823" | sudo apt-key add
@@ -49,7 +50,6 @@ echo "Mongosh successfully installed!"
 cd
 echo "Installing Spark ..."
 sudo apt update && sudo apt -y full-upgrade
-sudo apt install curl mlocate default-jdk -y
 wget https://archive.apache.org/dist/spark/spark-3.1.2/spark-3.1.2-bin-hadoop2.7.tgz
 tar xvf spark-3.1.2-bin-hadoop2.7.tgz
 sudo mv spark-3.1.2-bin-hadoop2.7/ /opt/spark
