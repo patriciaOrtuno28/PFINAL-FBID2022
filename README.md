@@ -157,6 +157,8 @@ chmod 777 database.sh
 ./database.sh
 ```
 
+> Nota: Para acceder a la URL indicada, si ha escogido el método de instalación en VirtualBox, acceda a través de Firefox. Si por el contrario ha escogido Google Cloud, hemos incluido la instalación de Google Chrome en VM.sh, por lo que podrá localizarlo en el menú de aplicaciones de su máquina.
+
 ## Destruir el escenario (Opcional) <a name="destroy"></a>
 En caso de desearse revertir el proceso de instalación del escenario de predicción de vuelos, se proporciona un fichero adicional que ejecuta dicha acción.
 
