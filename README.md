@@ -18,7 +18,7 @@ Laura Fernández Galindo & Patricia Ortuño Otero
 > Nota: Debe escoger una de las dos opciones de creación de una máquina virtual Ubuntu 22.04 para desplegar el escenario. Se proporcionan instrucciones para una instalación local en VirtualBox a partir de una imagen ISO, y para la creación de un Ubuntu Desktop a través de Google Cloud.
 
 - [Crear VM Ubuntu en VirtualBox](#crearvmlocal)
-- [Crear VM Ubuntu en Google Cloud](#crearvm)
+- [Crear VM Ubuntu en Google Cloud (RECOMENDADO)](#crearvm)
 - [Instalar dependencias](#dependencias)
 - [Iniciar el escenario](#deploy)
 - [Destruir el escenario (Opcional)](#destroy)
@@ -46,7 +46,7 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
 
 > Nota: Para cambiar la resolución acceda a Settings -> Displays -> Resolution
 
-## Crear máquina virtual Ubuntu 22.04 Google Cloud <a name="crearvm"></a>
+## Crear máquina virtual Ubuntu 22.04 Google Cloud (RECOMENDADO) <a name="crearvm"></a>
 
 1. Acceder a [Google Cloud Compute](https://console.cloud.google.com/compute) con sus credenciales.
 2. Crear una nueva instancia:
@@ -54,13 +54,15 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
   - Crear instancia
     - Zona: europe-southwest1-a
     - Disco de arranque:
-      - Ubuntu 22.04 LTS Pro Server (Arquitectura x86-64)
+      - Ubuntu 22.04 LTS Minimal (Arquitectura x86-64)
       - Tamaño 18GB
     - Firewall: permitir tráfico HTTP y HTTPS
 3. Clonar este repositorio dentro de la máquina creada:
      ```console
      git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git
      ```
+     > Nota: Si la máquina no reconoce el comando git, ejecute el siguiente comando: `sudo apt-get update && sudo apt install -y git`
+     
 4. Para la realización de esta práctica se utilizará Ubuntu 22.04 Desktop. Para ello, se proporciona un fichero automatizado de instalación de las dependencias necesarias.
 
      ```console
@@ -70,24 +72,11 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
      ```console
      ./desktop.sh
      ```
-     Tras ejecutarlo, verá que se ha hecho reboot. Por tanto, haga clic en `Reintentar` para volver a acceder a la máquina por SSH.
-     Entonces ejecute el siguiente comando:
-     ```
-     sudo service slim start
-     ```
- 5. Acceda a [Chrome Remote Desktop](https://remotedesktop.google.com/headless) para la configuración de Ubuntu 22.04 Desktop.
- 
-     - Haga clic en Configurar otra página de ordenador: `Empezar` -> `Siguiente` -> `Autorizar`
-     - En Configurar otro ordenador copie el contenido de `Debian Linux`
-     - Pegue dicho comando en la instancia abierta por SSH de su máquina virtual
-     - Se le solicitará introducir un PIN de 6 dígitos. Introduzca el que desee y recuérdelo.
-     - Si todo ha funcionado satisfactoriamente, verá el siguiente mensaje en la terminal:
-     ```
-     [1110/181949.990461:INFO:daemon_controller_delegate_linux.cc(98)] Created symlink /etc/systemd/system/multi-user.target.wants/chrome-remote-desktop@patiortu.service → /lib/systemd/system/chrome-remote-desktop@.service.
-     ```
-     - Vuelva a entrar en Chrome Remote Desktop y acceda a `Acceso remoto`
-     - Verá que ha aparecido la instancia que creó en Google Cloud. Haga clic sobre ella e introduzca el PIN que creó.
-     - Si le solicita autenticación al abrirse el escritorio remoto, haga clic en cancelar.
+     
+     > Importante: Se le solicitará escoger el *Keyboard Layout*. Si tiene un ordenador con teclado español, escriba 84 y 1 respectivamente.
+     
+5. Para trabajar con Ubuntu Desktop con interfaz gráfica, en vez de la terminal proporcionada por Google Cloud, descargue [NoMachine](https://downloads.nomachine.com/es/). Tras completar la instalación, se le solicitará reiniciar el dispositivo.
+6. 
 
 
 ## Instalar las dependencias <a name="dependencias"></a>
