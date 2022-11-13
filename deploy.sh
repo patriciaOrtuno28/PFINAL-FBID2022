@@ -74,7 +74,7 @@ gnome-terminal --tab --title="Spark Submit" \
 echo "Running the web service ..."
 export PROJECT_HOME=/home/$USER/PFINAL-FBID2022/practica_big_data_2019
 gnome-terminal --tab --title="Web Service" \
-	--command="bash -c 'cd /home/$USER/PFINAL-FBID2022/practica_big_data_2019/resources/web; pip install joblib; python3 predict_flask.py; $SHELL'"
+	--command="bash -c 'cd /home/$USER/PFINAL-FBID2022/practica_big_data_2019/resources/web; pip install joblib; echo "http://localhost:5000/flights/delays/predict_kafka"; python3 predict_flask.py; $SHELL'"
 
 # Show database information
 echo "Showing database information ..."
