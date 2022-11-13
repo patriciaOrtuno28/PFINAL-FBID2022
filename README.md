@@ -74,9 +74,23 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
      ```
      
      > Importante: Se le solicitará escoger el *Keyboard Layout*. Si tiene un ordenador con teclado español, escriba 84 y 1 respectivamente.
-     
-5. Para trabajar con Ubuntu Desktop con interfaz gráfica, en vez de la terminal proporcionada por Google Cloud, descargue [NoMachine](https://downloads.nomachine.com/es/). Tras completar la instalación, se le solicitará reiniciar el dispositivo.
-6. 
+
+5. Para tener conectividad dentro de esta máquina, vamos a añadir una nueva regla al Firewall en Google Cloud:
+     - Google Cloud -> Red de VPC -> Firewall
+     - Crear una regla de Firewall
+          - Nombre: ubuntu-desktop
+          - Etiquetas de destino: ubuntu-desktop
+          - Rangos de IPv4 de origen: 0.0.0.0/0
+          - Protocolos y puertos especificados: TCP - 4000 y UDP - 4000
+     Verá el siguiente mensaje por pantalla: `Se creó correctamente la regla de firewall "ubuntu-desktop".`
+6. Hay que añadir esa regla a la instancia creada. Para ello hacemos clic sobre el nombre de la instancia y seleccionamos Editar. Hay que bajar hasta etiquetas de red y añadir `ubuntu-desktop`, dentro de Interfaces de red.
+
+7. Para trabajar con Ubuntu Desktop con interfaz gráfica, en vez de la terminal proporcionada por Google Cloud, descargue [NoMachine](https://downloads.nomachine.com/es/). Tras completar la instalación, se le solicitará reiniciar el dispositivo.
+8. Para añadir una nueva máquina seleccionar Añadir e introducir los siguientes datos:
+     - Nombre: FBID
+     - Host:
+     - Puerto: 4000 (*El que habíamos abierto en el Firewall*)
+     - Protocolo: NX
 
 
 ## Instalar las dependencias <a name="dependencias"></a>
