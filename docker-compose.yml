@@ -1,0 +1,19 @@
+version: '3'
+services:
+  mongo:
+    container_name: mongo
+    image: mongo:latest
+    expose:
+      - "27017"
+  kafka:
+    container_name: kafka
+    build: docker/kafka/
+    expose:
+      - "2181"
+  spark:
+    container_name: spark
+    build: docker/spark/
+    expose:
+      - "7077"
+      - "8581"
+      - "8582"
