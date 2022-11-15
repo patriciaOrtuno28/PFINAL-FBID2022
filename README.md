@@ -41,6 +41,7 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
 7. Al terminar la descarga, reinicie la máquina virtual. Presione *Enter* cuando se le solicite.
 8. Clonar este repositorio dentro de la máquina creada, y acceda a él:
      ```console
+     cd
      git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git
      ```
 
@@ -59,6 +60,7 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
     - Firewall: permitir tráfico HTTP y HTTPS
 3. Clonar este repositorio dentro de la máquina creada, y acceda a él:
      ```console
+     cd
      git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git
      ```
      > Nota: Si la máquina no reconoce el comando git, ejecute el siguiente comando: `sudo apt-get update && sudo apt install -y git`
@@ -118,7 +120,7 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
 ### Instalación
 Para la realización de esta práctica de predicción de vuelos, se requiere un escenario con las tecnologías mencionadas en el apartado anterior previamente instaladas. Para ello se proporciona un script automatizado que las instalará, con versiones acordes al escenario a ejecutar posteriormente.
 
-> Nota: Si escogió la instalación en Google Cloud, clone de nuevo el proyecto dentro del Ubuntu Desktop: `git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git`. Acceda a él.
+> Nota: Si escogió la instalación en Google Cloud, acceda al directorio base `cd` y clone de nuevo el proyecto dentro del Ubuntu Desktop: `git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git`. Acceda a él.
 
 > Nota: Si se pide el reinicio de algún servicio, marque ambas opciones (utilizando la barra espaciadora). Cuando estén marcados (aparecerá un [*]), presione Enter.
 
@@ -166,7 +168,7 @@ chmod 777 database.sh
 *TODO*
 
 ## Destruir el escenario (Opcional) <a name="destroy"></a>
-En caso de desearse revertir el proceso de instalación del escenario de predicción de vuelos, se proporciona un fichero adicional que ejecuta dicha acción.
+En caso de desearse revertir el proceso de instalación del escenario de predicción de vuelos, se proporciona un fichero adicional que ejecuta dicha acción. Se recomienda lanzar el comando antes de cerrar las terminales que se abrieron automáticamente durante la ejecución del sistema.
 
 Primero, se debe proporcionar permisos al archivo a ejecutar:
 ```console
