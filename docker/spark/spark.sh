@@ -1,8 +1,13 @@
 #!/bin/bash
 
+# Import airline data using monsh
+echo "Importing airline data ..."
+sed -i 's/mongo /mongosh /g' practica_big_data_2019/resources/import_distances.sh
+cd practica_big_data_2019
+./resources/import_distances.sh
+
 # Train the model
 echo "Training the model ..."
-cd practica_big_data_2019
 python3 resources/train_spark_mllib_model.py practica_big_data_2019
 
 # Modify the base_path

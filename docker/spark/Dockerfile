@@ -1,4 +1,6 @@
 FROM ubuntu:22.04
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=Europe/Madrid
 
 WORKDIR /home/
 
@@ -24,7 +26,19 @@ RUN apt update && apt install -y git && \
         git clone https://github.com/ging/practica_big_data_2019.git && \
 	chmod 777 practica_big_data_2019 && \
         practica_big_data_2019/resources/download_data.sh && \
-	pip install -r practica_big_data_2019/requirements.txt
+	pip install -r practica_big_data_2019/requirements.txt 
+
+RUN apt update && apt install -y curl && \
+        apt install -y dirmngr gnupg apt-transport-https ca-certificates software-properties-common && \
+        wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | apt-key add - && \
+        echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-5.0.list && \
+        apt update && \
+        wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb && \
+        dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb && \
+        apt-get install -y mongodb-org
+
+RUN wget https://downloads.mongodb.com/compass/mongodb-mongosh_1.6.0_amd64.deb && \
+        dpkg -i mongodb-mongosh_1.6.0_amd64.deb
 
 ENV JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
 ENV SPARK_HOME=/opt/spark
