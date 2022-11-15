@@ -3,8 +3,6 @@ FROM ubuntu:22.04
 RUN apt update && \
 	apt install curl mlocate default-jdk -y && \
 	apt -y install wget && \
-	apt install -y python3 && apt install -y python3-pip && \
-	pip install termdown && \
 	wget https://archive.apache.org/dist/kafka/3.0.0/kafka_2.12-3.0.0.tgz && \
 	tar xzf kafka_2.12-3.0.0.tgz && \
 	mv kafka_2.12-3.0.0 /usr/local/kafka && \
