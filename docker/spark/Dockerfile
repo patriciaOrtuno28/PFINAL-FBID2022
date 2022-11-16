@@ -43,10 +43,16 @@ RUN wget https://downloads.mongodb.com/compass/mongodb-mongosh_1.6.0_amd64.deb &
 ENV JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
 ENV SPARK_HOME=/opt/spark
 
-COPY spark.sh /
-RUN chmod 777 /spark.sh
+RUN sed -i 's@mongoimport @mongoimport --host mongo --port 27017 @g' practica_big_data_2019/resources/import_distances.sh
+RUN sed -i 's@mongo agile_data_science@mongosh mongo:27017/agile_data_science@g' practica_big_data_2019/resources/import_distances.sh
 
-ENTRYPOINT ["/spark.sh"]
+RUN cd practica_big_data_2019 && ./resources/import_distances.sh
+
+RUN sed -i 's@val base_path= "/Users/admin/IdeaProjects/ging/practica_big_data_2019"@val base_path= "/home/practica_big_data_2019"@g' /home/practica_big_data_2019/flight_prediction/src/main/scala/es/upm/dit/ging/predictor/MakePrediction.scala
+
+RUN cd /home/practica_big_data_2019/flight_prediction && \
+	sbt package && \
+	chmod 777 target/scala-2.12/flight_prediction_2.12-0.1.jar 
 
 EXPOSE 7077
 EXPOSE 8581
