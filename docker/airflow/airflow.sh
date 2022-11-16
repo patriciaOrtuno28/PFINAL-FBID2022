@@ -7,7 +7,7 @@ sed -i 's/numpy==1.20.3/numpy==1.21.5/g' constraints.txt
 pip install -r requirements.txt -c constraints.txt
 
 # Create folders
-export AIRFLOW_HOME=~/airflow
+export AIRFLOW_HOME=/home/airflow
 cd /home
 mkdir airflow
 cd airflow
