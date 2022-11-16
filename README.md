@@ -20,6 +20,7 @@ Laura Fernández Galindo & Patricia Ortuño Otero
 - [Crear VM Ubuntu en VirtualBox](#crearvmlocal)
 - [Crear VM Ubuntu en Google Cloud (RECOMENDADO)](#crearvm)
 - [Ejecutar el escenario base](#base)
+- - [Ejecutar el escenario con Docker Compose](#docker)
 
 ## Crear máquina virtual Ubuntu 22.04 VirtualBox <a name="crearvmlocal"></a>
 
@@ -41,6 +42,7 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
      ```console
      cd
      git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git
+     cd PFINAL-FBID2022
      ```
 
 > Nota: Para cambiar la resolución acceda a Settings -> Displays -> Resolution
@@ -60,6 +62,7 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
      ```console
      cd
      git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git
+     cd PFINAL-FBID2022
      ```
      > Nota: Si la máquina no reconoce el comando git, ejecute el siguiente comando: `sudo apt-get update && sudo apt install -y git`
      
@@ -120,7 +123,7 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
 #### Instalación
 Para la realización de esta práctica de predicción de vuelos, se requiere un escenario con las tecnologías mencionadas en el apartado anterior previamente instaladas. Para ello se proporciona un script automatizado que las instalará, con versiones acordes al escenario a ejecutar posteriormente.
 
-> Nota: Si escogió la instalación en Google Cloud, acceda al directorio base `cd` y clone de nuevo el proyecto dentro del Ubuntu Desktop: `git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git`. Acceda a él.
+> Nota: Si escogió la instalación en Google Cloud, acceda al directorio base `cd` y clone de nuevo el proyecto dentro del Ubuntu Desktop: `git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git`. Acceda a él: `cd PFINAL-FBID2022`.
 
 > Nota: Si se pide el reinicio de algún servicio, marque ambas opciones (utilizando la barra espaciadora). Cuando estén marcados (aparecerá un [*]), presione Enter.
 
@@ -178,3 +181,43 @@ Ahora podemos ejecutarlo:
 ```console
 ./destroy.sh
 ```
+
+## Ejecutar el escenario con Docker Compose <a name="docker"></a>
+
+### Instalar las dependencias
+
+Primero, se debe proporcionar permisos al archivo a ejecutar:
+```console
+chmod 777 VMDocker.sh
+```
+Ahora podemos ejecutarlo:
+```console
+./VMDocker.sh
+```
+
+### Iniciar el escenario
+Para inicializar el escenario de predicción de retrasos (o adelantos) de vuelos, se debe clonar primero el repositorio [Práctica Big Data 2019](https://github.com/ging/practica_big_data_2019), dentro de PFINAL-FBID2022:
+
+```
+git clone https://github.com/ging/practica_big_data_2019
+```
+
+A continuación, se despliega el escenario con docker-compose:
+```
+sudo docker-compose up -d
+```
+
+Para conocer la IP del contenedor Flask y acceder al servicio web ejecute:
+```
+sudo docker inspect flask
+```
+
+Con esa IP acceda a http://<IpAddress>:5000/flights/delays/predict_kafka.
+
+#### Destruir el escenario (Opcional)
+
+```
+sudo docker-compose down
+```
+
+
