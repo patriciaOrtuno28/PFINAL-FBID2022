@@ -14,7 +14,7 @@ mkdir logs
 mkdir plugins
 
 # Move the dag to the dags' folder
-cp practica_big_data_2019/resources/airflow/setup.py dags/
+cp ../practica_big_data_2019/resources/airflow/setup.py dags/
 
 # Create an airflow user
 airflow users create \
