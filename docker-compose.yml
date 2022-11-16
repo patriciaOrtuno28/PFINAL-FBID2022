@@ -39,3 +39,4 @@ services:
       - master
       - worker
       - mongo
+    tty: true
