@@ -31,6 +31,8 @@ RUN apt update && apt install -y git && \
 ENV JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
 ENV SPARK_HOME=/opt/spark
 
+RUN cd practica_big_data_2019 && python3 resources/train_spark_mllib_model.py .
+
 RUN sed -i 's@val base_path= "/Users/admin/IdeaProjects/ging/practica_big_data_2019"@val base_path= "/home/practica_big_data_2019"@g' /home/practica_big_data_2019/flight_prediction/src/main/scala/es/upm/dit/ging/predictor/MakePrediction.scala
 
 RUN cd /home/practica_big_data_2019/flight_prediction && \
