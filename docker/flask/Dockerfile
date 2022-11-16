@@ -1,8 +1,5 @@
 FROM ubuntu:22.04
 
-ARG DEBIAN_FRONTEND=noninteractive
-ENV TZ=Europe/Madrid
-
 WORKDIR /home/
 
 RUN apt update && apt install -y curl && \
@@ -16,8 +13,11 @@ RUN apt update && apt install -y git && \
         practica_big_data_2019/resources/download_data.sh && \
 	pip install -r practica_big_data_2019/requirements.txt
 
+ENV PROJECT_HOME=/home/practica_big_data_2019
+
 COPY flask.sh /
 RUN chmod 777 /flask.sh
+
 
 ENTRYPOINT ["/flask.sh"]
 
