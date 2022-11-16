@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
   kafka:
     container_name: kafka
@@ -10,21 +10,15 @@ services:
   mongo:
     container_name: mongo
     image: mongo:latest
+    command: mongod --bind_ip 127.0.0.1,172.16.0.1 
     expose:
       - "27017"
     depends_on:
       - 'kafka'
     tty: true
-    volumes:
-      - ./practica_big_data_2019:/home
-  mongo-import:
-    container_name: mongo-import
-    image: mongo:latest
-    depends_on:
-      - 'mongo'
-    volumes:
-      - ./practica_big_data_2019:/home
-    command: sed -i 's@mongo @mongosh @g' /home/resources/import_distances.sh && ./home/resources/import_distances.sh 
+    networks:
+      mynet:
+        ipv4_address: 172.16.0.1
   master:
     container_name: master
     build: docker/spark/
@@ -36,6 +30,8 @@ services:
       - 'mongo'
       - 'kafka'
     tty: true
+    networks:
+      mynet:
   worker:
     container_name: worker
     build: docker/spark/
@@ -58,3 +54,11 @@ services:
       - 'worker'
       - 'mongo'
     tty: true
+
+networks:
+  mynet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.16.0.0/24
+          gateway: 172.16.0.254
