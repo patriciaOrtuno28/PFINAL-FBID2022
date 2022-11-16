@@ -8,12 +8,13 @@ pip install -r requirements.txt -c constraints.txt
 
 # Create folders
 export AIRFLOW_HOME=~/airflow
-mkdir $AIRFLOW_HOME/dags
-mkdir $AIRFLOW_HOME/logs
-mkdir $AIRFLOW_HOME/plugins
+cd /home/airflow
+mkdir dags
+mkdir logs
+mkdir plugins
 
 # Move the dag to the dags' folder
-cp setup.py ~/airflow/dags/
+cp practica_big_data_2019/resources/airflow/setup.py dags/
 
 # Create an airflow user
 airflow users create \

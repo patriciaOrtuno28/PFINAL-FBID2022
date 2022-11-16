@@ -5,7 +5,7 @@ ENV TZ=Europe/Madrid
 
 WORKDIR /home/
 
-RUN apt update && \
+RUN apt update && apt install -y curl && \
 	apt install -y python3 && \
 	apt install -y python3-pip && \
 	dpkg --configure -a
