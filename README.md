@@ -19,9 +19,7 @@ Laura Fernández Galindo & Patricia Ortuño Otero
 
 - [Crear VM Ubuntu en VirtualBox](#crearvmlocal)
 - [Crear VM Ubuntu en Google Cloud (RECOMENDADO)](#crearvm)
-- [Instalar dependencias](#dependencias)
-- [Iniciar el escenario](#deploy)
-- [Destruir el escenario (Opcional)](#destroy)
+- [Ejecutar el escenario base](#base)
 
 ## Crear máquina virtual Ubuntu 22.04 VirtualBox <a name="crearvmlocal"></a>
 
@@ -106,8 +104,10 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
 10. Inicie sesión con las credenciales que creó durante la ejecución del fichero desktop.sh.
 11. Verá el siguiente mensaje `No se puede detectar ninguna pantalla en ejecución ¿Desea que NoMachine cree una nueva y proceda a conectarse con el escritorio?`. Pinche Sí.
 
-## Instalar las dependencias <a name="dependencias"></a>
-### Tecnologías
+## Ejecutar el escenario base <a name="base"></a>
+
+### Instalar las dependencias 
+#### Tecnologías
 - [Python3](https://es.wikipedia.org/wiki/Python)
 - [Pip](https://es.wikipedia.org/wiki/Pip_(administrador_de_paquetes))
 - [Sbt](https://en.wikipedia.org/wiki/Sbt_(software))
@@ -117,7 +117,7 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
 - [Zookeeper](https://zookeeper.apache.org/)
 - [Kafka](https://kafka.apache.org/)
 
-### Instalación
+#### Instalación
 Para la realización de esta práctica de predicción de vuelos, se requiere un escenario con las tecnologías mencionadas en el apartado anterior previamente instaladas. Para ello se proporciona un script automatizado que las instalará, con versiones acordes al escenario a ejecutar posteriormente.
 
 > Nota: Si escogió la instalación en Google Cloud, acceda al directorio base `cd` y clone de nuevo el proyecto dentro del Ubuntu Desktop: `git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git`. Acceda a él.
@@ -139,7 +139,7 @@ Cuando haya terminado la instalación, verá el siguiente mensaje por la consola
 All dependencies have been successfully installed. Please proceed with the execution of the flight-delay predictor scenario.
 ```
 
-## Iniciar el escenario <a name="deploy"></a>
+### Iniciar el escenario
 Para inicializar el escenario de predicción de retrasos (o adelantos) de vuelos, se proporciona un fichero que automatiza todas las funciones mencionadas en [Práctica Big Data 2019](https://github.com/ging/practica_big_data_2019).
 
 Primero, se debe proporcionar permisos al archivo a ejecutar:
@@ -163,11 +163,11 @@ chmod 777 database.sh
 
 > Nota: Para acceder a la URL indicada, si ha escogido el método de instalación en VirtualBox, acceda a través de Firefox. Si por el contrario ha escogido Google Cloud, hemos incluido la instalación de Google Chrome en VM.sh, por lo que podrá localizarlo en el menú de aplicaciones de su máquina.
 
-### Arquitectura Apache Airflow
+#### Arquitectura Apache Airflow
 
 *TODO*
 
-## Destruir el escenario (Opcional) <a name="destroy"></a>
+#### Destruir el escenario (Opcional)
 En caso de desearse revertir el proceso de instalación del escenario de predicción de vuelos, se proporciona un fichero adicional que ejecuta dicha acción. Se recomienda lanzar el comando antes de cerrar las terminales que se abrieron automáticamente durante la ejecución del sistema.
 
 Primero, se debe proporcionar permisos al archivo a ejecutar:
