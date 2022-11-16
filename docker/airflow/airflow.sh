@@ -8,7 +8,9 @@ pip install -r requirements.txt -c constraints.txt
 
 # Create folders
 export AIRFLOW_HOME=~/airflow
-cd /home/airflow
+cd /home
+mkdir airflow
+cd airflow
 mkdir dags
 mkdir logs
 mkdir plugins
