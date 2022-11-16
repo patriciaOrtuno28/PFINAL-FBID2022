@@ -2,13 +2,14 @@
 
 # Import airline data using monsh
 echo "Importing airline data ..."
-sed -i 's/mongo /mongosh /g' practica_big_data_2019/resources/import_distances.sh
+sed -i 's@mongoimport @mongoimport --host mongo --port 27017 @g' practica_big_data_2019/resources/import_distances.sh
+sed -i 's/mongo agile_data_science/mongosh mongo:27017/agile_data_science/g' practica_big_data_2019/resources/import_distances.sh
 cd practica_big_data_2019
 ./resources/import_distances.sh
 
 # Train the model
 echo "Training the model ..."
-python3 resources/train_spark_mllib_model.py practica_big_data_2019
+python3 resources/train_spark_mllib_model.py .
 
 # Modify the base_path
 echo "Creating JAR file ..."
