@@ -10,10 +10,37 @@ services:
     build: docker/kafka/
     expose:
       - "2181"
-  spark:
-    container_name: spark
+      - "9092"
+  master:
+    container_name: master
     build: docker/spark/
     expose:
       - "7077"
+    depends_on:
+      - mongo
+      - kafka
+  worker:
+    container_name: worker
+    build: docker/spark/
+    command: /opt/spark/bin/spark-submit --deploy-mode client --class es.upm.dit.ging.predictor.MakePrediction --master local[2] --packages org.mongodb.spark:mongo-spark-connector_2.12:3.0.1,org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.0 /home/practica_big_data_2019/flight_prediction/target/scala-2.12/flight_prediction_2.12-0.1.jar
+    expose:
       - "8581"
       - "8582"
+    depends_on:
+      - master
+      - mongo
+      - kafka
+  flask:
+    container_name: flask
+    build: docker/flask/
+    expose:
+      - "5000"
+    depends_on:
+      - master
+      - worker
+      - mongo
+  airflow:
+    container_name: airflow
+    build: /docker/airflow/
+    expose:
+      - "8080"

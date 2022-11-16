@@ -1,19 +1,21 @@
 #!/bin/bash
 
-cd practica_big_data_2019
-cd resources/airflow
+cd practica_big_data_2019/resources/airflow
 
 sed -i 's/numpy==1.20.3/numpy==1.21.5/g' constraints.txt
 
 pip install -r requirements.txt -c constraints.txt
 
+# Create folders
 export AIRFLOW_HOME=~/airflow
 mkdir $AIRFLOW_HOME/dags
 mkdir $AIRFLOW_HOME/logs
 mkdir $AIRFLOW_HOME/plugins
 
+# Move the dag to the dags' folder
 cp setup.py ~/airflow/dags/
 
+# Create an airflow user
 airflow users create \
     --username admin \
     --firstname Jack \
@@ -21,11 +23,12 @@ airflow users create \
     --role Admin \
     --email example@mail.org
 
+# Launch airflow commands 
 airflow db init
 
-cd 
-airflow webserver --port 8080
+airflow webserver --port 8080 &
 
-# Finished deployment
-cd PFINAL-FBID2022
-echo "Scenario successfully deployed! Visit http://localhost:5000/flights/delays/predict_kafka to make use of the flight delay predictions."
+airflow scheduler &
+
+# Inform the user of the URL to be visited 
+echo "Visit http://localhost:5000/flights/delays/predict_kafka to make use of the flight delay predictions."

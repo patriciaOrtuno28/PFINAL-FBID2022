@@ -24,4 +24,4 @@ RUN chmod 777 /kafka.sh
 ENTRYPOINT ["/kafka.sh"]
 
 EXPOSE 2181/tcp
-
+EXPOSE 9092
