@@ -39,8 +39,3 @@ services:
       - master
       - worker
       - mongo
-  airflow:
-    container_name: airflow
-    build: /docker/airflow/
-    expose:
-      - "8080"
