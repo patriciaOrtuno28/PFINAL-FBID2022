@@ -1,13 +1,21 @@
 version: '3'
 services:
+  zookeeper:
+    container_name: zookeeper
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181:2181"
   kafka:
     container_name: kafka
-    build: docker/kafka/
-    expose:
-      - "2181"
-      - "9092"
+    image: wurstmeister/kafka
+    ports:
+      - "9092:9092"
     tty: true
-    command: tail -F /dev/null
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: kafka
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_PORT: 9092
+      KAFKA_CREATE_TOPICS: "flight_delay_classification_request:1:1"
   mongo:
     container_name: mongo
     image: mongo:latest
