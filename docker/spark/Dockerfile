@@ -34,6 +34,8 @@ ENV SPARK_HOME=/opt/spark
 RUN cd practica_big_data_2019 && python3 resources/train_spark_mllib_model.py .
 
 RUN sed -i 's@val base_path= "/Users/admin/IdeaProjects/ging/practica_big_data_2019"@val base_path= "/home/practica_big_data_2019"@g' /home/practica_big_data_2019/flight_prediction/src/main/scala/es/upm/dit/ging/predictor/MakePrediction.scala
+RUN sed -i 's@localhost:9092@kafka:9092@g' /home/practica_big_data_2019/flight_prediction/src/main/scala/es/upm/dit/ging/predictor/MakePrediction.scala
+RUN sed -i 's@127.0.0.1:27017@mongo:27017@g' /home/practica_big_data_2019/flight_prediction/src/main/scala/es/upm/dit/ging/predictor/MakePrediction.scala
 
 RUN cd /home/practica_big_data_2019/flight_prediction && \
 	sbt package && \
