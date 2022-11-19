@@ -33,7 +33,7 @@ services:
       - 'mongo'
     volumes:
       - ./practica_big_data_2019:/home
-    command: sed -i 's@mongo @mongosh @g' /home/resources/import_distances.sh && ./home/resources/import_distances.sh 
+    command: sed -i 's@mongo @mongosh @g' /home/resources/import_distances.sh && cd home &&  ./resources/import_distances.sh 
   master:
     container_name: master
     build: docker/spark/
