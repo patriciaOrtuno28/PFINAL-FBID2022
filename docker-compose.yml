@@ -23,17 +23,7 @@ services:
       - "27017"
     depends_on:
       - 'kafka'
-    tty: true
-    volumes:
-      - ./practica_big_data_2019:/home
-  mongo-import:
-    container_name: mongo-import
-    image: mongo:latest
-    depends_on:
-      - 'mongo'
-    volumes:
-      - ./practica_big_data_2019:/home
-    command: sed -i 's@mongo @mongosh @g' /home/resources/import_distances.sh && cd home && ./resources/import_distances.sh 
+    tty: true 
   master:
     container_name: master
     build: docker/spark/
@@ -56,6 +46,8 @@ services:
       - 'master'
       - 'mongo'
       - 'kafka'
+    environment:
+      - "SPARK_MASTER=spark://master:7077"
     tty: true
   flask:
     container_name: flask
