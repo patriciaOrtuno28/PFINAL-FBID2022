@@ -28,27 +28,10 @@ RUN apt update && apt install -y git && \
         practica_big_data_2019/resources/download_data.sh && \
 	pip install -r practica_big_data_2019/requirements.txt 
 
-RUN apt install -y dirmngr gnupg apt-transport-https ca-certificates software-properties-common && \
-	wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | apt-key add - && \
-	echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-5.0.list && \
-	apt update && wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb && \
-	dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb && \
-	apt-get install -y mongodb-org
-
-RUN wget https://downloads.mongodb.com/compass/mongodb-mongosh_1.6.0_amd64.deb && \
-	dpkg -i mongodb-mongosh_1.6.0_amd64.deb
-
 ENV JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
 ENV SPARK_HOME=/opt/spark
 
-RUN cd practica_big_data_2019
-
-RUN sed -i 's@mongoimport@mongoimport --host mongo --port 27017@g' resources/import_distances.sh
-RUN sed -i 's@mongo @mongosh mongo:27017/@g' resources/import_distances.sh
-
-RUN ./resources/import_distances.sh
-
-RUN python3 resources/train_spark_mllib_model.py .
+RUN cd practica_big_data_2019 && python3 resources/train_spark_mllib_model.py .
 
 RUN sed -i 's@val base_path= "/Users/admin/IdeaProjects/ging/practica_big_data_2019"@val base_path= "/home/practica_big_data_2019"@g' /home/practica_big_data_2019/flight_prediction/src/main/scala/es/upm/dit/ging/predictor/MakePrediction.scala
 RUN sed -i 's@localhost:9092@kafka:9092@g' /home/practica_big_data_2019/flight_prediction/src/main/scala/es/upm/dit/ging/predictor/MakePrediction.scala

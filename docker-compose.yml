@@ -26,6 +26,15 @@ services:
     tty: true
     volumes:
       - ./practica_big_data_2019:/home
+  mongo-import:
+    container_name: mongo-import
+    image: mongo:latest
+    depends_on:
+      - 'mongo'
+    tty: true
+    volumes:
+      - ./practica_big_data_2019:/home
+    command: cd home && sed -i 's@mongoimport@mongoimport --host mongo --port 27017@g' resources/import_distances.sh && sed -i 's@mongo @mongosh mongo:27017/@g' resources/import_distances.sh && ./resources/import_distances.sh
   master:
     container_name: master
     build: docker/spark/
