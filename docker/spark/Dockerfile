@@ -29,8 +29,8 @@ RUN apt update && apt install -y git && \
 	pip install -r practica_big_data_2019/requirements.txt 
 
 RUN apt install -y dirmngr gnupg apt-transport-https ca-certificates software-properties-common && \
-	wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add - && \
-	echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list && \
+	wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | apt-key add - && \
+	echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-5.0.list && \
 	apt update && wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb && \
 	dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb && \
 	apt-get install -y mongodb-org
