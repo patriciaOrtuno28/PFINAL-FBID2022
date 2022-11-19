@@ -23,7 +23,9 @@ services:
       - "27017"
     depends_on:
       - 'kafka'
-    tty: true 
+    tty: true
+    volumes:
+      - ./practica_big_data_2019:/home
   master:
     container_name: master
     build: docker/spark/

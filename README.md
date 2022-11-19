@@ -200,6 +200,9 @@ Para inicializar el escenario de predicción de retrasos (o adelantos) de vuelos
 
 ```
 git clone https://github.com/ging/practica_big_data_2019
+cd practica_big_data_2019
+resources/download_data.sh
+cd ..
 ```
 
 A continuación, se despliega el escenario con docker-compose:
