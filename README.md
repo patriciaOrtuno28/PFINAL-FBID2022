@@ -15,11 +15,11 @@ Laura Fernández Galindo & Patricia Ortuño Otero
 
 # Instrucciones
 
-> Nota: Debe escoger una de las dos opciones de creación de una máquina virtual Ubuntu 22.04 para desplegar el escenario. Se proporcionan instrucciones para una instalación local en VirtualBox a partir de una imagen ISO, y para la creación de un Ubuntu Desktop a través de Google Cloud.
+> Nota: Debe escoger una de las dos opciones de creación de una máquina virtual Ubuntu 22.04 para desplegar el escenario. Se proporcionan instrucciones para una instalación local en VirtualBox a partir de una imagen ISO, y para la creación de un Ubuntu Desktop a través de Google Cloud. Luego se debe escoger que modo de ejecución se desea, local o en contenedores con Docker Compose.
 
 - [Crear VM Ubuntu en VirtualBox](#crearvmlocal)
 - [Crear VM Ubuntu en Google Cloud (RECOMENDADO)](#crearvm)
-- [Ejecutar el escenario base](#base)
+- [Ejecutar el escenario local](#base)
 - [Ejecutar el escenario con Docker Compose](#docker)
 
 ## Crear máquina virtual Ubuntu 22.04 VirtualBox <a name="crearvmlocal"></a>
@@ -107,7 +107,7 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
 10. Inicie sesión con las credenciales que creó durante la ejecución del fichero desktop.sh.
 11. Verá el siguiente mensaje `No se puede detectar ninguna pantalla en ejecución ¿Desea que NoMachine cree una nueva y proceda a conectarse con el escritorio?`. Pinche Sí.
 
-## Ejecutar el escenario base <a name="base"></a>
+## Ejecutar el escenario local <a name="base"></a>
 
 ### Instalar las dependencias 
 #### Tecnologías
