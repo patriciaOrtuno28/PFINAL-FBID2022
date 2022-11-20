@@ -18,10 +18,14 @@ ENV PROJECT_HOME=/home/practica_big_data_2019
 ENV JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
 
 RUN cd practica_big_data_2019/resources/web && \
-	pip install joblib -y && \
+	pip install joblib && \
 	sed -i 's@MongoClient()@MongoClient("mongo", 27017)@g' predict_flask.py && \
-	sed -i 's@localhost:9092@kafka:9092@g' predict_flask.py && \
-	python3 predict_flask.py
+	sed -i 's@localhost:9092@kafka:9092@g' predict_flask.py
+
+COPY flask.sh /
+RUN chmod 777 /flask.sh
+
+ENTRYPOINT ["/flask.sh"]
 
 EXPOSE 5000
 
