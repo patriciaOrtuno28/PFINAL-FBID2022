@@ -198,20 +198,20 @@ Ahora podemos ejecutarlo:
 ### Iniciar el escenario
 Para inicializar el escenario de predicción de retrasos (o adelantos) de vuelos, se debe lanzar con docker-compose:
 
-```
+```console
 sudo docker-compose up -d
 ```
 
 Para conocer la IP del contenedor Flask y acceder al servicio web ejecute:
-```
+```console
 sudo docker inspect flask
 ```
 
-Con esa IP acceda a http://<IpAddress>:5000/flights/delays/predict_kafka.
+Con esa IP acceda a http://IpAddress:5000/flights/delays/predict_kafka.
 
 #### Destruir el escenario (Opcional)
 
-```
+```console
 sudo docker-compose down
 ```
 
