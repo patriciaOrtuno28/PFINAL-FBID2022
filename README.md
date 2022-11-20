@@ -196,16 +196,8 @@ Ahora podemos ejecutarlo:
 ```
 
 ### Iniciar el escenario
-Para inicializar el escenario de predicción de retrasos (o adelantos) de vuelos, se debe clonar primero el repositorio [Práctica Big Data 2019](https://github.com/ging/practica_big_data_2019), dentro de PFINAL-FBID2022:
+Para inicializar el escenario de predicción de retrasos (o adelantos) de vuelos, se debe lanzar con docker-compose:
 
-```
-git clone https://github.com/ging/practica_big_data_2019
-cd practica_big_data_2019
-resources/download_data.sh
-cd ..
-```
-
-A continuación, se despliega el escenario con docker-compose:
 ```
 sudo docker-compose up -d
 ```
