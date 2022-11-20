@@ -20,7 +20,7 @@ Laura Fernández Galindo & Patricia Ortuño Otero
 - [Crear VM Ubuntu en VirtualBox](#crearvmlocal)
 - [Crear VM Ubuntu en Google Cloud (RECOMENDADO)](#crearvm)
 - [Ejecutar el escenario base](#base)
-- - [Ejecutar el escenario con Docker Compose](#docker)
+- [Ejecutar el escenario con Docker Compose](#docker)
 
 ## Crear máquina virtual Ubuntu 22.04 VirtualBox <a name="crearvmlocal"></a>
 
