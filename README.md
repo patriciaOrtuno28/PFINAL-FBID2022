@@ -178,7 +178,7 @@ Airflow esta compuesto por un servidor web que se encarga de gestionar las petic
 <img src="assets/images/topology_airflow.png" width="400" height="250"/>
 
 ##### ¿Para que utilizamos Airflow en este escenario?
-
+Se va a desplegar un DAG que tenga como tarea entrenar el modelo de datos para hacer predicciones con el mismo. Se le establece una tarea de PySpark para extraer los campos de la base de datos que vamos a utilizar para entrenar el modelo clasificador, y otra tarea para el propio evento de entrenar. La segunda tarea esperará a la finalización de la primera para ejecutarse.
 
 #### Destruir el escenario (Opcional)
 En caso de desearse revertir el proceso de instalación del escenario de predicción de vuelos, se proporciona un fichero adicional que ejecuta dicha acción. Se recomienda lanzar el comando antes de cerrar las terminales que se abrieron automáticamente durante la ejecución del sistema.
