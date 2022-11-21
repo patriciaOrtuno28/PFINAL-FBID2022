@@ -225,4 +225,7 @@ Con esa IP acceda a http://IpAddress:5000/flights/delays/predict_kafka.
 sudo docker-compose down
 ```
 
+## Referencias
+
+<a href="https://www.flaticon.es/resultados?word=web" target="_blank">Flaticon</a>
 
