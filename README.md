@@ -164,9 +164,21 @@ chmod 777 database.sh
 
 > Nota: Para acceder a la URL indicada, si ha escogido el método de instalación en VirtualBox, acceda a través de Firefox. Si por el contrario ha escogido Google Cloud, hemos incluido la instalación de Google Chrome en VM.sh, por lo que podrá localizarlo en el menú de aplicaciones de su máquina.
 
-#### Arquitectura Apache Airflow
+#### Apache Airflow
 
-*TODO*
+##### ¿Qué es Apache Airflow?
+Apache Airflow es una herramienta que se usa para la orquestación de servicios, permite la creación, la planificación y el seguimiento de flujos de trabajo. Las aplicaciones principales son: la automatización de la ingesta de datos, las tareas de administración y las acciones de mantenimiento periódicas. 
+
+##### ¿Qué son los DAGs?
+Airflow trabaja con DAGs (Directed Acyclic Graphs), son colecciones de tareas a ejecutar, cada una de estas tareas están relacionadas. Estas relaciones son de sentido único y acíclicas, es decir, no permiten volver a hacia atrás. Cada una de estas tareas quedan recogidas en un nodo. Un nodo, es una representación visual de cada uno de los trabajos que se están ejecutando. Por otro lado, los operadores son los encargados de determinar cómo se debe ejecutar cada una de las tareas.
+
+##### Arquitectura de Airflow
+Airflow esta compuesto por un servidor web que se encarga de gestionar las peticiones, es decir, que sirve de API y por un *Scheduler* que lleva a cabo el proceso de entender, ejecutar y monitorizar las tareas descritas en los DAGs.  Una característica importante del Scheduler es que presenta un ejecutor encargado de repartir las tareas y de lanzar los workers. Utiliza bases de datos como SQLite para almacenar los metadatos, los usuarios y las ejecuciones realizadas. Podemos ejecutar Airflow por medio de programas como Kubernetes, Sequential, Dask, etc.
+
+<img src="assets/images/topology_airflow.png" width="400" height="250"/>
+
+##### ¿Para que utilizamos Airflow en este escenario?
+
 
 #### Destruir el escenario (Opcional)
 En caso de desearse revertir el proceso de instalación del escenario de predicción de vuelos, se proporciona un fichero adicional que ejecuta dicha acción. Se recomienda lanzar el comando antes de cerrar las terminales que se abrieron automáticamente durante la ejecución del sistema.
