@@ -92,7 +92,7 @@ mkdir dags
 mkdir logs
 mkdir plugins
 
-cp setup.py ~/airflow/dags/
+cp practica_big_data_2019/resources/airflow/setup.py dags/
 
 airflow users create \
     --username admin \
