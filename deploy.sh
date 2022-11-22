@@ -63,7 +63,7 @@ sed -i 's@val base_path= "/Users/admin/IdeaProjects/ging/practica_big_data_2019"
 cd /home/$USER/PFINAL-FBID2022/practica_big_data_2019/flight_prediction
 sbt package
 chmod 777 target/scala-2.12/flight_prediction_2.12-0.1.jar
-cd
+cd ..
 
 # Spark-submit
 echo "Submitting JAR file to Spark ..."
@@ -78,21 +78,21 @@ gnome-terminal --tab --title="Web Service" \
 
 # Install and run airflow
 echo "Executing airflow ..."
-cd PFINAL-FBID2022/practica_big_data_2019/resources/airflow
+cd resources/airflow
 
 sed -i 's/numpy==1.20.3/numpy==1.21.5/g' constraints.txt
 
 pip install -r requirements.txt -c constraints.txt
 
 export AIRFLOW_HOME=~/airflow
-cd
+cd ~
 mkdir airflow
 cd airflow
 mkdir dags
 mkdir logs
 mkdir plugins
 
-cp practica_big_data_2019/resources/airflow/setup.py dags/
+cp $PROJECT_HOME/resources/airflow/setup.py dags/
 
 airflow users create \
     --username admin \
