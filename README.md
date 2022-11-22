@@ -154,7 +154,9 @@ Ahora podemos ejecutarlo:
 
 > Nota: Se solicitará una contraseña por pantalla. Es para el usuario de Airflow.
 
-Una vez finalizada la ejecución del escenario, se mostrará un mensaje por consola con una URL a la que acceder. A través de la misma, se accede a una web donde poder predecir los retrasos o adelantos en los vuelos entre un origen y destino, y para una fecha concreta.
+Una vez finalizada la ejecución del escenario, se mostrará un mensaje por consola con una URL http://localhost:5000/flights/delays/predict_kafka. A través de la misma, se accede a una web donde poder predecir los retrasos o adelantos en los vuelos entre un origen y destino, y para una fecha concreta.
+
+Para acceder a la consola de Apache Airflow utilice la siguiente URL: http://localhost:8080.
 
 (Opcional) Si quiere observar el estado de la base de datos tras estas predicciones, ejecute los siguientes comandos:
 ```console
