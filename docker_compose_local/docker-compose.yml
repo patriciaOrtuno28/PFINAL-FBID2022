@@ -27,7 +27,7 @@ services:
     tty: true
   master:
     container_name: master
-    build: docker/spark/
+    build: ../docker/spark/
     expose:
       - "7077"
     links:
@@ -38,7 +38,7 @@ services:
     tty: true
   worker:
     container_name: worker
-    build: docker/spark/
+    build: ../docker/spark/
     command: /opt/spark/bin/spark-submit --deploy-mode client --class es.upm.dit.ging.predictor.MakePrediction --master spark://master:7077 --packages org.mongodb.spark:mongo-spark-connector_2.12:3.0.1,org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.0 /home/practica_big_data_2019/flight_prediction/target/scala-2.12/flight_prediction_2.12-0.1.jar
     expose:
       - "8581"
@@ -52,7 +52,7 @@ services:
     tty: true
   flask:
     container_name: flask
-    build: docker/flask/
+    build: ../docker/flask/
     expose:
       - "5000"
     depends_on:
