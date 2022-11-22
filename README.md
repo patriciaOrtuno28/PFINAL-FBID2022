@@ -212,6 +212,12 @@ Para inicializar el escenario de predicción de retrasos (o adelantos) de vuelos
 sudo docker-compose up -d
 ```
 
+> Nota: Las imágenes están alojadas en DockerHub:
+
+> [Spark](https://hub.docker.com/repository/docker/patriciaortuno28/fbid_spark)
+
+> [Flask](https://hub.docker.com/repository/docker/patriciaortuno28/fbid_flask)
+
 Para conocer la IP del contenedor Flask y acceder al servicio web ejecute:
 ```console
 sudo docker inspect flask
