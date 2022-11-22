@@ -78,17 +78,19 @@ gnome-terminal --tab --title="Web Service" \
 
 # Install and run airflow
 echo "Executing airflow ..."
-cd practica_big_data_2019
-cd resources/airflow
+cd PFINAL-FBID2022/practica_big_data_2019/resources/airflow
 
 sed -i 's/numpy==1.20.3/numpy==1.21.5/g' constraints.txt
 
 pip install -r requirements.txt -c constraints.txt
 
 export AIRFLOW_HOME=~/airflow
-mkdir $AIRFLOW_HOME/dags
-mkdir $AIRFLOW_HOME/logs
-mkdir $AIRFLOW_HOME/plugins
+cd
+mkdir airflow
+cd airflow
+mkdir dags
+mkdir logs
+mkdir plugins
 
 cp setup.py ~/airflow/dags/
 
