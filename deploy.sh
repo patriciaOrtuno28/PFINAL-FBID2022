@@ -78,34 +78,47 @@ gnome-terminal --tab --title="Web Service" \
 
 # Install and run airflow
 echo "Executing airflow ..."
-cd practica_big_data_2019
-cd resources/airflow
 
-sed -i 's/numpy==1.20.3/numpy==1.21.5/g' constraints.txt
-
-pip install -r requirements.txt -c constraints.txt
+cd
 
 export AIRFLOW_HOME=~/airflow
-mkdir $AIRFLOW_HOME/dags
-mkdir $AIRFLOW_HOME/logs
-mkdir $AIRFLOW_HOME/plugins
+sudo mkdir $AIRFLOW_HOME
+cd $AIRFLOW_HOME 
+sudo mkdir dags
+sudo mkdir logs
+sudo mkdir plugins
+cd
 
-cp setup.py ~/airflow/dags/
+cd PFINAL-FBID2022
+cd practica_big_data_2019
+cd resources
+cd airflow
 
-airflow users create \
+sudo cp setup.py  ~/airflow/dags
+
+sed -i 's/numpy==1.20.3/numpy==1.21.5/g' constraints.txt
+sed -i 's/certifi==2020.12.5/certifi==2021.10.8/g' constraints.txt
+
+pip install -r requirements.txt -c constraints.txt
+pip install apache-airflow[cncf.kubernetes]
+
+sudo airflow users create \
     --username admin \
     --firstname Jack \
     --lastname  Sparrow\
     --role Admin \
     --email example@mail.org
 
-airflow db init
+sudo airflow db init
+
+cd
+cd airflow
 
 gnome-terminal --tab --title="Airflow Webserver" \
-        --command="bash -c 'cd;  airflow webserver --port 8080; $SHELL'"
+        --command="bash -c 'cd; sudo airflow webserver --port 8080; $SHELL'"
 
 gnome-terminal --tab --title="Airflow Scheduler" \
-        --command="bash -c 'cd; airflow scheduler; $SHELL'"
+        --command="bash -c 'cd; sudo airflow scheduler; $SHELL'"
 
 # Finished deployment
 cd PFINAL-FBID2022
