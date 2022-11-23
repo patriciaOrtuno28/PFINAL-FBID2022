@@ -35,20 +35,38 @@ services:
     depends_on:
       - 'mongo'
       - 'kafka'
+    environment:
+      - "SPARK_WORKLOAD=master"
     tty: true
-  worker:
-    container_name: worker
+  worker1:
+    container_name: worker1
     image: patriciaortuno28/fbid_spark:1.0
-    command: /opt/spark/bin/spark-submit --deploy-mode client --class es.upm.dit.ging.predictor.MakePrediction --master spark://master:7077 --packages org.mongodb.spark:mongo-spark-connector_2.12:3.0.1,org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.0 /home/practica_big_data_2019/flight_prediction/target/scala-2.12/flight_prediction_2.12-0.1.jar
+    command: /opt/spark/bin/spark-submit --class es.upm.dit.ging.predictor.MakePrediction --master spark://master:7077 --packages org.mongodb.spark:mongo-spark-connector_2.12:3.0.1,org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.0 /home/practica_big_data_2019/flight_prediction/target/scala-2.12/flight_prediction_2.12-0.1.jar
     expose:
       - "8581"
+    depends_on:
+      - 'master'
+      - 'mongo'
+      - 'kafka'
+    environment:
+      - "SPARK_MASTER_PORT=7077"
+      - "SPARK_MASTER=spark://master:7077"
+      - "SPARK_WORKLOAD=worker"
+    tty: true
+  worker2:
+    container_name: worker2
+    image: patriciaortuno28/fbid_spark:1.0
+    command: /opt/spark/bin/spark-submit --class es.upm.dit.ging.predictor.MakePrediction --master spark://master:7077 --packages org.mongodb.spark:mongo-spark-connector_2.12:3.0.1,org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.0 /home/practica_big_data_2019/flight_prediction/target/scala-2.12/flight_prediction_2.12-0.1.jar
+    expose:
       - "8582"
     depends_on:
       - 'master'
       - 'mongo'
       - 'kafka'
     environment:
+      - "SPARK_MASTER_PORT=7077"
       - "SPARK_MASTER=spark://master:7077"
+      - "SPARK_WORKLOAD=worker"
     tty: true
   flask:
     container_name: flask
@@ -57,6 +75,5 @@ services:
       - "5000"
     depends_on:
       - 'master'
-      - 'worker'
       - 'mongo'
     tty: true
