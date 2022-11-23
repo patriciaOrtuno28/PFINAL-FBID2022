@@ -20,7 +20,7 @@ Laura Fernández Galindo & Patricia Ortuño Otero
 - [Crear VM Ubuntu en VirtualBox](#crearvmlocal)
 - [Crear VM Ubuntu en Google Cloud (RECOMENDADO)](#crearvm)
 - [Ejecutar el escenario local](#base)
-- [Ejecutar el escenario con Docker Compose](#docker)
+- [Ejecutar el escenario con Docker Compose (RECOMENDADO)](#docker)
 
 ## Crear máquina virtual Ubuntu 22.04 VirtualBox <a name="crearvmlocal"></a>
 
@@ -38,7 +38,7 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
 5. Le solicitará una imagen ISO para hacer la instalación. Descargar [Ubuntu 22.04 Desktop Image (64-bit AMD64)](https://releases.ubuntu.com/22.04/) de la web oficial.
 6. Siga los pasos para realizar la instalación. Se recomienda escoger la instalación mínima por cuestiones de rendimiento y velocidad de la descarga.
 7. Al terminar la descarga, reinicie la máquina virtual. Presione *Enter* cuando se le solicite.
-8. Clonar este repositorio dentro de la máquina creada, y acceda a él:
+8. Clonar este repositorio dentro de la máquina creada, y acceda al mismo:
      ```console
      cd
      git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git
@@ -103,7 +103,7 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
      - Protocolo: NX
 9. Darle a Conectar en la máquina creada. Aparecerá una advertencia sobre la huella del certificado. Pinche OK.
 10. Inicie sesión con las credenciales que creó durante la ejecución del fichero desktop.sh.
-11. Verá el siguiente mensaje `No se puede detectar ninguna pantalla en ejecución ¿Desea que NoMachine cree una nueva y proceda a conectarse con el escritorio?`. Pinche Sí.
+11. Verá el siguiente mensaje `No se puede detectar ninguna pantalla en ejecución ¿Desea que NoMachine cree una nueva y proceda a conectarse con el escritorio?` Pinche Sí.
 
 ## Ejecutar el escenario local <a name="base"></a>
 
@@ -121,7 +121,7 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
 #### Instalación
 Para la realización de esta práctica de predicción de vuelos, se requiere un escenario con las tecnologías mencionadas en el apartado anterior previamente instaladas. Para ello se proporciona un script automatizado que las instalará, con versiones acordes al escenario a ejecutar posteriormente.
 
-> Nota: Si escogió la instalación en Google Cloud, acceda al directorio base `cd` y clone de nuevo el proyecto dentro del Ubuntu Desktop: `git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git`. Acceda a él: `cd PFINAL-FBID2022`.
+> Nota: Si escogió la instalación en Google Cloud, acceda al directorio base `cd` y clone de nuevo el proyecto dentro del Ubuntu Desktop: `git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git` Acceder: `cd PFINAL-FBID2022`
 
 > Nota: Si se pide el reinicio de algún servicio, marque ambas opciones (utilizando la barra espaciadora). Cuando estén marcados (aparecerá un [*]), presione Enter.
 
@@ -154,7 +154,9 @@ Ahora podemos ejecutarlo:
 
 > Nota: Se solicitará una contraseña por pantalla. Es para el usuario de Airflow.
 
-Una vez finalizada la ejecución del escenario, se mostrará un mensaje por consola con una URL a la que acceder. A través de la misma, se accede a una web donde poder predecir los retrasos o adelantos en los vuelos entre un origen y destino, y para una fecha concreta.
+Una vez finalizada la ejecución del escenario, se mostrará un mensaje por consola con una URL http://localhost:5000/flights/delays/predict_kafka. A través de la misma, se accede a una web donde poder predecir los retrasos o adelantos en los vuelos entre un origen y destino, y para una fecha concreta.
+
+Para acceder a la consola de Apache Airflow utilice la siguiente URL: http://localhost:8080.
 
 (Opcional) Si quiere observar el estado de la base de datos tras estas predicciones, ejecute los siguientes comandos:
 ```console
@@ -192,7 +194,7 @@ Ahora podemos ejecutarlo:
 ./destroy.sh
 ```
 
-## Ejecutar el escenario con Docker Compose <a name="docker"></a>
+## Ejecutar el escenario con Docker Compose (RECOMENDADO) <a name="docker"></a>
 
 ### Instalar las dependencias
 
@@ -205,12 +207,27 @@ Ahora podemos ejecutarlo:
 ./VMDocker.sh
 ```
 
-### Iniciar el escenario
-Para inicializar el escenario de predicción de retrasos (o adelantos) de vuelos, se debe lanzar con docker-compose:
+> Nota: Se recomienda ejecutar el escenario con las imágenes de DockerHub por cuestiones de latencia en la puesta en marcha del escenario.
+
+> [Spark](https://hub.docker.com/repository/docker/patriciaortuno28/fbid_spark)
+
+> [Flask](https://hub.docker.com/repository/docker/patriciaortuno28/fbid_flask)
+
+### Iniciar el escenario con imágenes subidas a DockerHub (RECOMENDADO)
 
 ```console
+cd docker_compose_dockerhub
 sudo docker-compose up -d
 ```
+
+### Iniciar el escenario con imágenes locales
+
+```console
+cd docker_compose_local
+sudo docker-compose up -d
+```
+
+### Acceder a la web de predicciones
 
 Para conocer la IP del contenedor Flask y acceder al servicio web ejecute:
 ```console
@@ -219,10 +236,12 @@ sudo docker inspect flask
 
 Con esa IP acceda a http://IpAddress:5000/flights/delays/predict_kafka.
 
-#### Destruir el escenario (Opcional)
+### Destruir el escenario (Opcional)
 
+Ejecutar desde la carpeta del Docker Compose que se haya utilizado para levantar el escenario:
 ```console
 sudo docker-compose down
+sudo docker system prune -a
 ```
 
 ## Referencias
