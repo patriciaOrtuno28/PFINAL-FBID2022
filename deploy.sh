@@ -79,30 +79,23 @@ gnome-terminal --tab --title="Web Service" \
 # Install and run airflow
 echo "Executing airflow ..."
 
-cd
-
 export AIRFLOW_HOME=~/airflow
 
-sudo mkdir $AIRFLOW_HOME
-cd $AIRFLOW_HOME 
-sudo mkdir dags
-sudo mkdir logs
-sudo mkdir plugins
 cd
+cd PFINAL-FBID2022/
+sudo chmod 777 create-airflow.sh
+sudo su -c ./create-airflow.sh root
 
-cd PFINAL-FBID2022
-cd practica_big_data_2019
-cd resources
-cd airflow
-
-sudo cp setup.py  ~/airflow/dags
+cd
+cd PFINAL-FBID2022/practica_big_data_2019/resources/airflow
 
 sed -i 's/numpy==1.20.3/numpy==1.21.5/g' constraints.txt
 sed -i 's/certifi==2020.12.5/certifi==2021.10.8/g' constraints.txt
 
-pip install -r requirements.txt -c constraints.txt
-pip install apache-airflow[cncf.kubernetes]
+sudo pip install -r requirements.txt -c constraints.txt
+sudo pip install apache-airflow[cncf.kubernetes]
 
+echo "Choose a password for the airflow's admin account ..."
 sudo airflow users create \
     --username admin \
     --firstname Jack \
@@ -113,8 +106,6 @@ sudo airflow users create \
 sudo airflow db init
 
 cd
-cd airflow
-
 gnome-terminal --tab --title="Airflow Webserver" \
         --command="bash -c 'cd; sudo airflow webserver --port 8080; $SHELL'"
 
