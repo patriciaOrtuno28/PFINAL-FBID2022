@@ -32,7 +32,7 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
      - Versión: Ubuntu 22.04 LTS (Jammy Jellyfish) (64 bit)
      - Memoria base (*recomendado*): > 4096 MB
      - Procesadores (*recomendado*): > 2
-     - Tamaño de disco (*recomendado*): > 20 GB
+     - Tamaño de disco (*recomendado*): > 25 GB
 3. Para tener acceso a Internet: Configuración -> Red -> Adaptador1 -> Adaptador puente
 4. Inicie la máquina
 5. Le solicitará una imagen ISO para hacer la instalación. Descargar [Ubuntu 22.04 Desktop Image (64-bit AMD64)](https://releases.ubuntu.com/22.04/) de la web oficial.
@@ -56,7 +56,7 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
     - Zona: europe-southwest1-a
     - Disco de arranque:
       - Ubuntu 22.04 LTS Minimal (Arquitectura x86-64)
-      - Tamaño 18GB
+      - Tamaño de disco (*recomendado*): > 15 GB
     - Firewall: permitir tráfico HTTP y HTTPS
 3. Clonar este repositorio dentro de la máquina creada, y acceda a él:
      ```console
