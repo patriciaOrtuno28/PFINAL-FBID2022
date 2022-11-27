@@ -207,11 +207,11 @@ Ahora podemos ejecutarlo:
 ./VMDocker.sh
 ```
 
-> Nota: Se recomienda ejecutar el escenario con las imágenes de DockerHub por cuestiones de latencia en la puesta en marcha del escenario.
+> Nota: Se recomienda ejecutar el escenario con las imágenes de DockerHub por cuestiones de latencia en la puesta en marcha del escenario. Puede acceder a los enlaces de DockerHub donde hemos subido nuestras imágenes:
 
-> [Spark](https://hub.docker.com/repository/docker/patriciaortuno28/fbid_spark)
+> [Imagen en DockerHub de Spark](https://hub.docker.com/repository/docker/patriciaortuno28/fbid_spark)
 
-> [Flask](https://hub.docker.com/repository/docker/patriciaortuno28/fbid_flask)
+> [Imagen en DockerHub de Flask](https://hub.docker.com/repository/docker/patriciaortuno28/fbid_flask)
 
 ### Iniciar el escenario con imágenes subidas a DockerHub (RECOMENDADO)
 
@@ -234,7 +234,7 @@ Para conocer la IP del contenedor Flask y acceder al servicio web ejecute:
 sudo docker inspect flask
 ```
 
-Con esa IP acceda a http://IpAddress:5000/flights/delays/predict_kafka.
+Con esa IP acceda a http://ipaddress:5000/flights/delays/predict_kafka.
 
 ### Destruir el escenario (Opcional)
 
