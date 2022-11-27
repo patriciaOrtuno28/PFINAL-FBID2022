@@ -15,7 +15,7 @@ Laura Fernández Galindo & Patricia Ortuño Otero
 
 # Instrucciones
 
-> Nota: Debe escoger una de las dos opciones de creación de una máquina virtual Ubuntu 22.04 para desplegar el escenario. Se proporcionan instrucciones para una instalación local en VirtualBox a partir de una imagen ISO, y para la creación de un Ubuntu Desktop a través de Google Cloud. Luego se debe escoger que modo de ejecución se desea, local o en contenedores con Docker Compose.
+>__Note__ Debe escoger una de las dos opciones de creación de una máquina virtual Ubuntu 22.04 para desplegar el escenario. Se proporcionan instrucciones para una instalación local en VirtualBox a partir de una imagen ISO, y para la creación de un Ubuntu Desktop a través de Google Cloud. Luego se debe escoger que modo de ejecución se desea, local o en contenedores con Docker Compose.
 
 - [Crear VM Ubuntu en VirtualBox](#crearvmlocal)
 - [Crear VM Ubuntu en Google Cloud (RECOMENDADO)](#crearvm)
@@ -45,7 +45,7 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
      cd PFINAL-FBID2022
      ```
 
-> Nota: Para cambiar la resolución acceda a Settings -> Displays -> Resolution
+>__Note__ Para cambiar la resolución acceda a Settings -> Displays -> Resolution
 
 ## Crear máquina virtual Ubuntu 22.04 Google Cloud (RECOMENDADO) <a name="crearvm"></a>
 
@@ -64,13 +64,13 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
      git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git
      cd PFINAL-FBID2022
      ```
-     > Nota: Si la máquina no reconoce el comando git, ejecute el siguiente comando: `sudo apt-get update && sudo apt install -y git`
+     >__Note__ Si la máquina no reconoce el comando git, ejecute el siguiente comando: `sudo apt-get update && sudo apt install -y git`
      
 4. Para la realización de esta práctica se utilizará Ubuntu 22.04 Desktop. Para ello, se proporciona un fichero automatizado de instalación de las dependencias necesarias.
 
-     > Nota: Si se pide el reinicio de algún servicio, marque ambas opciones (utilizando la barra espaciadora). Cuando estén marcados (aparecerá un [*]), presione   Enter.
+     >__Note__ Si se pide el reinicio de algún servicio, marque ambas opciones (utilizando la barra espaciadora). Cuando estén marcados (aparecerá un [*]), presione   Enter.
 
-     > Importante: El usuario que se va a crear se llama `fbid`
+     >__Warning__ El usuario que se va a crear se llama `fbid`
 
      ```console
      chmod 777 desktop.sh
@@ -121,9 +121,9 @@ A continuación, se proporcionan las instrucciones para crear una máquina virtu
 #### Instalación
 Para la realización de esta práctica de predicción de vuelos, se requiere un escenario con las tecnologías mencionadas en el apartado anterior previamente instaladas. Para ello se proporciona un script automatizado que las instalará, con versiones acordes al escenario a ejecutar posteriormente.
 
-> Nota: Si escogió la instalación en Google Cloud, acceda al directorio base `cd` y clone de nuevo el proyecto dentro del Ubuntu Desktop: `git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git` Acceder: `cd PFINAL-FBID2022`
+>__Note__ Si escogió la instalación en Google Cloud, acceda al directorio base `cd` y clone de nuevo el proyecto dentro del Ubuntu Desktop: `git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git` Acceder: `cd PFINAL-FBID2022`
 
-> Nota: Si se pide el reinicio de algún servicio, marque ambas opciones (utilizando la barra espaciadora). Cuando estén marcados (aparecerá un [*]), presione Enter.
+>__Note__ Si se pide el reinicio de algún servicio, marque ambas opciones (utilizando la barra espaciadora). Cuando estén marcados (aparecerá un [*]), presione Enter.
 
 Primero, se debe proporcionar permisos al archivo a ejecutar:
 ```console
@@ -152,7 +152,7 @@ Ahora podemos ejecutarlo:
 ./deploy.sh
 ```
 
-> Nota: Se solicitará una contraseña por pantalla. Es para el usuario de Airflow.
+>__Warning__ Se solicitará una contraseña por pantalla. Es para el usuario de Airflow.
 
 Una vez finalizada la ejecución del escenario, se mostrará un mensaje por consola con una URL http://localhost:5000/flights/delays/predict_kafka. A través de la misma, se accede a una web donde poder predecir los retrasos o adelantos en los vuelos entre un origen y destino, y para una fecha concreta.
 
@@ -164,7 +164,7 @@ chmod 777 database.sh
 ./database.sh
 ```
 
-> Nota: Para acceder a la URL indicada, si ha escogido el método de instalación en VirtualBox, acceda a través de Firefox. Si por el contrario ha escogido Google Cloud, hemos incluido la instalación de Google Chrome en VM.sh, por lo que podrá localizarlo en el menú de aplicaciones de su máquina.
+>__Note__ Para acceder a la URL indicada, si ha escogido el método de instalación en VirtualBox, acceda a través de Firefox. Si por el contrario ha escogido Google Cloud, hemos incluido la instalación de Google Chrome en VM.sh, por lo que podrá localizarlo en el menú de aplicaciones de su máquina.
 
 #### Apache Airflow
 
@@ -207,7 +207,7 @@ Ahora podemos ejecutarlo:
 ./VMDocker.sh
 ```
 
-> Nota: Se recomienda ejecutar el escenario con las imágenes de DockerHub por cuestiones de latencia en la puesta en marcha del escenario. Puede acceder a los enlaces de DockerHub donde hemos subido nuestras imágenes:
+>__Note__ Se recomienda ejecutar el escenario con las imágenes de DockerHub por cuestiones de latencia en la puesta en marcha del escenario. Puede acceder a los enlaces de DockerHub donde hemos subido nuestras imágenes:
 
 > [Imagen en DockerHub de Spark](https://hub.docker.com/repository/docker/patriciaortuno28/fbid_spark)
 
