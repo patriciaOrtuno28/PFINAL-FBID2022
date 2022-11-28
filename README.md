@@ -180,7 +180,12 @@ Airflow esta compuesto por un servidor web que se encarga de gestionar las petic
 <img src="assets/images/topology_airflow.png" width="400" height="250"/>
 
 ##### ¿Para que utilizamos Airflow en este escenario?
-Se va a desplegar un DAG que tenga como tarea entrenar el modelo de datos para hacer predicciones con el mismo. Se le establece una tarea de PySpark para extraer los campos de la base de datos que vamos a utilizar para entrenar el modelo clasificador, y otra tarea para el propio evento de entrenar. La segunda tarea esperará a la finalización de la primera para ejecutarse.
+Se va a desplegar un DAG que tenga como tarea entrenar el modelo de datos para hacer predicciones con el mismo. Se le establece una tarea de PySpark para extraer los campos de la base de datos que vamos a utilizar para entrenar el modelo clasificador, y otra tarea para el propio evento de entrenar.
+
+##### ¿Qué pasa si falla la tarea de entrenar el modelo? ¿Cuál es la periodicidad de la misma?
+Si una task falla, el resto de tareas se realizarán sin ningún tipo de problema. Esto se debe principalmente a que cada una de las tareas son independientes las unas de las otras. En este caso, la tarea de obtención de los campos de la base de datos se ejecutaría sin dar error.
+
+No tiene ningún tipo de periodicidad. Esto es debido a que en su campo schedule presenta el valor de None, lo cual significa que no está programada y que su uso es para DAG exclusivamente, es decir, que está activado solo externamente. Si presentase el valor de @once, la tarea solo se realizaría una vez; si presentase el valor de @hourly, el task se ejecutaría una vez cada hora. En cambio, si valiese @daily la tarea se realizaría una vez al día a medianoche. Lo mismo ocurriría para @weekly, @monthly y @yearly, en las cuales el  task se realizaría una vez a la semana, al mes y al año respectivamente, siempre a medianoche.
 
 #### Destruir el escenario (Opcional)
 En caso de desearse revertir el proceso de instalación del escenario de predicción de vuelos, se proporciona un fichero adicional que ejecuta dicha acción. Se recomienda lanzar el comando antes de cerrar las terminales que se abrieron automáticamente durante la ejecución del sistema.
